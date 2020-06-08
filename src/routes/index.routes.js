@@ -1,13 +1,17 @@
 import Inicio from "../views/index.js";
 import Registro from "../views/register.js";
 import HTTP404 from "../views/404.js";
+import post from "../views/posts.js";
 import ResetPassword from "../views/passwordReset.js";
 import UserProfile from "../views/userProfile.js";
 
-let content = document.getElementById("container");
+const content = document.getElementById("container");
 
 const routes = (routes) => {
   content.innerHTML = "";
+
+  // console.log(routes);
+
   switch (routes) {
     case "":
       return content.appendChild(Inicio());
@@ -19,6 +23,10 @@ const routes = (routes) => {
 
     case "#/resetpassword":
       return content.appendChild(ResetPassword());
+      
+    case "#/userPost":
+      return content.appendChild(post());
+
 
     case "#/userProfile":
       return content.appendChild(UserProfile());
@@ -29,4 +37,3 @@ const routes = (routes) => {
 };
 
 export { routes };
- 

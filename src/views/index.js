@@ -1,5 +1,6 @@
 import { userLogin, statusUser, loginGoogle } from "../lib/fireBase.js";
 
+
 export default () => {
   const views = `
   <!-- Inicio -->
@@ -19,7 +20,7 @@ export default () => {
             </br>
             <a href="#/resetpassword" id=passRecover>¿Olvidaste tu contraseña?</a>
             </br>
-            <a href="#" id="btnLogin" class="btnLogin">
+            <a href="#/userPost" id="btnLogin" class="btnLogin">
               <span id="span1"></span>
               <span id="span2"></span>
               <span id="span3"></span>
@@ -29,7 +30,17 @@ export default () => {
         </div>
         <!--  -->
         <div class="bodyUserGoogle">
-          <a href="#" id='loginGoogle'><img id="logoGoogle" src="img/google.png" alt="imagen iniciar sesion google"></a>
+          
+          <!-- Boton Google -->
+          <a href="#" id='loginGoogle' class="buttonGoogle">
+            <img src="img/favicon.ico">Conectar con
+            <span class="G1">G</span>
+            <span class="o1">o</span>
+            <span class="o2">o</span>
+            <span class="g2">g</span>
+            <span class="l1">l</span>
+            <span class="e1">e</span>
+          </a>
         </div>
         <div class="bodyUserRegistrar">
           <p id= "bodyUserRegistrar" >¿No tienes una cuenta?</p> <a href="#/userRegister" id="register" > Regístrate </a>
@@ -47,10 +58,13 @@ export default () => {
   divElement.innerHTML = views;
 
   const btnLogin = divElement.querySelector("#btnLogin");
+
   const btnGoogle= divElement.querySelector("#loginGoogle");
   const resetPassword = divElement.querySelector("#passRecover");
 
-  btnLogin.addEventListener("click", () => {
+
+  btnLogin.addEventListener("click", (e) => {
+    e.preventDefault();
     const email = divElement.querySelector("#email").value;
     const password = divElement.querySelector("#password").value;
     userLogin(email, password);
@@ -58,14 +72,14 @@ export default () => {
     //location.hash ='#/userProfile';
   });
 
-  btnGoogle.addEventListener("click", () => {
+  
+  btnGoogle.addEventListener("click", (e) => {
+    e.preventDefault();
     loginGoogle();
-    //location.hash ='#/userProfile';
-  });
 
+  });
+  
   return divElement;
 
-  
-
-
 }; 
+

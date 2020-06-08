@@ -6,14 +6,6 @@
 html {
   font-family: "Rubik";
 }
-
-html, body {
-  overflow: hidden;
-}
-
-html, body {
-  overflow: hidden;
-}
 /*Phone*/
 * {
   margin: 0px;
@@ -47,10 +39,6 @@ body {
   border-radius: 15px;
   font-weight: 300;
 }
-.txtUser{
-  margin-bottom: 5px;
-  color: #fff;
-}
 .email,
 .password {
   width: 250px;
@@ -74,20 +62,7 @@ body {
   font-size: 15px;
   font-family: "Rubik";
 }
-/* Boton de Iniciar sesion Inicio*/
-.btnLogin {
-  padding: 10px 20px;
-  display: flex;
-  margin-top: 20px;
-  display: inline-block;
-  position: relative;
-  letter-spacing: 2px;
-  font-size: 24px;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: 0.2s;
-  font-weight: 300;
-}
+
 .btnLogin:hover {
   border-radius: 5px;
   background: #e54ebc;
@@ -154,27 +129,14 @@ body {
 .bodyUserGoogle,
 .bodyUserRegistrar,
 .bodyUserLogin,
-.registeredUser{
+.bodyUserWithAcount {
   background-color: #0b081b;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 10vh;
+  font-family: "Rubik";
 }
-/* .bodyUserLogin{
-
-} */
-/* .bodyUserRegistrar a,
-.bodyUserLogin a {
-
-} */
-/* .BtnReturn {
-
-  background-color: #0b081b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 .bodyUser a {
   color: #fff;
   text-decoration: none;
@@ -182,13 +144,6 @@ body {
 }
 
 #bodyUserRegistrar {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-#registeredUser{
-  margin-top: 70px;
   color: white;
   text-decoration: none;
   font-size: 14px;
@@ -218,7 +173,7 @@ body {
 }
 
 .container {
-  height: 100vh;
+  height: 89vh;
 }
 
 .bodyNotFound {
@@ -237,11 +192,23 @@ body {
 
 /*Desktop*/
 @media (min-width: 1090px) {
+  
+    html {
+    background: rgb(70, 30, 65);
+    background: linear-gradient(
+      0deg,
+      rgba(70, 30, 65, 1) 0%,
+      rgba(101, 29, 149, 1) 100%
+    );
+  }
 
-  body{
-    background: rgb(70,30,65);
-    background: linear-gradient(0deg, rgba(70,30,65,1) 0%, rgba(101,29,149,1) 100%);
-
+  .container {
+    background: rgb(70, 30, 65);
+    background: linear-gradient(
+      0deg,
+      rgba(70, 30, 65, 1) 0%,
+      rgba(101, 29, 149, 1) 100%
+    );
   }
 
   .bodyBox {
@@ -254,9 +221,6 @@ body {
     margin: 70px;
     padding: 20px;
     flex-direction: row;
-    -webkit-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
-    box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
   }
 
   #logoPrincipal {
@@ -269,16 +233,9 @@ body {
 
   .bodyUserRegistrar {
     align-self: flex-start;
-    margin-left: -480px;
+    margin-left: -210px;
     margin-top: -20px;
-    margin-right: -230px;
-    order: 1;
-  }
-
-  #registeredUser {
-    margin-left: -370px;
-    margin-top: -450px;
-    margin-right: 0px;
+    margin-right: -130px;
     order: 1;
   }
 
@@ -287,82 +244,157 @@ body {
     order: 2;
   }
 
-  .bodyUserGoogle{
-    display: flex;
-    align-self: flex-end;
-    margin-left: -180px;
-    order: 3;
-    align-content: center;
-  }
-
   .footer {
     position: fixed;
     background-color: none;
     margin-left: -150px;
-    margin-top: 53px;
+    margin-top: 130px;
     order: 2;
   }
 
-  #logoGoogle{
-    width: 150px;
-    border-color: white;
-    margin-top: -20px;
+.contenidoPost {
+    height: 80vh;
+    margin: 80px;
+}
+  .contenidoPost li{
+color: azure;
+font-family: "Rubik";
+list-style: none;
+padding: 20px;
+border: 1px solid rgb(114, 109, 109);
+margin-top: 30px;
+display: grid;
   }
-}
 
-/*Boton Google*/
-.buttonGoogle {
-	background:#fff;
-	box-shadow:0px 2px 0px #266792;
-	color:#000;
-	display:flex;
-	font-size:.7em;
-	margin:0px 10px;
-	padding:5px 0;
-  width:200px;
-	text-decoration:none;
-  border-radius:20px;
-  font-family: "Rubik";
-}
-a{
-    justify-content: center;
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-img{
-    padding-right: .3em;
-    width: 20px;
+    background: #2d216e;
+  }
+  .navigation {
+    display: flex;
+    list-style: none;
+    padding-right: 3em;
+    padding-left: 1em;
+  }
+
+.imgPerfil{
+    border-radius: 20px;  
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo,
+  .navigation a {
+    text-decoration: none;
+    
+  }
+  .navigation a {
+    display: block;
+    padding: 1em;
+    color: white;
+  }
+  .navigation a:hover {
+    background: #2f80ed;
+  }
+  input .search {
+    height: 20px;
+    border-radius: 10px;
+    margin: 10% 0 0 0;
+    border-color: #2f80ed;
+    text-indent: 4%;
+  }
+  .logo {
+    margin: 0 0 0 5%;
+  }
+  .logo img {
+    width: 200px;
     height: auto;
+    display: block;
+    padding: 1em;
+  }
+ 
+}
+ 
+  /*Desktop*/
+@media (min-width: 1090px) {
+    
+    html {
+    background: rgb(70, 30, 65);
+    background: linear-gradient(
+        0deg,
+        rgba(70, 30, 65, 1) 0%,
+        rgba(101, 29, 149, 1) 100%
+      );
     }
-
-
-/*Efectos, Hover*/
-.buttonGoogle:hover {
-	box-shadow:0px 1px 0px #266792;
-	padding-top:7px;
-}
-
-/*Google*/
-.G1, .o1, .o2, .g2, .l1, .e1{
- font-weight: 500;
- font-size: 1.4em;
- letter-spacing: 2px;
-}
-.G1{
-color: #4285f4;
-padding-left: .5em;
-}
-.o1{
-color: #ea4335;
-}
-.o2{
-color: #fbbc05;
-}
-.g2{
-color: #4285f4;
-}
-.l1{
-color: #34a853;
-}
-.e1{
-color: #ea4335;
+    li div.cerrar{
+      margin-left: auto;
+      top: 0;
+      right: 0px;
+      background: rgba(255,255,255,0.6);
+      width: 30px;
+      text-align: center;
+      padding: 10px 0;
+      font-weight:  bold;
+      cursor:  pointer;
+  }
+    .container {
+      background: rgb(70, 30, 65);
+      background: linear-gradient(
+        0deg,
+        rgba(70, 30, 65, 1) 0%,
+        rgba(101, 29, 149, 1) 100%
+      );
+    }
+  
+    .bodyBox {
+      background-color: #0b081b;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+      margin: 70px;
+      padding: 20px;
+      flex-direction: row;
+    }
+  
+    #logoPrincipal {
+      display: flex;
+      width: 350px;
+      background-color: #0b081b;
+      order: 2;
+      padding: 20px;
+    }
+  
+    .bodyUserRegistrar {
+      align-self: flex-start;
+      margin-left: -210px;
+      margin-top: -20px;
+      margin-right: -130px;
+      order: 1;
+    }
+    .bodyUserWithAcount{
+        align-self: flex-start;
+        margin-left: -300px;
+        margin-top: 10px;
+        margin-right: -130px;
+        order: 1;
+        padding-right: 20px;
+    }
+    
+      .userlogin {
+      padding-left: 0px;
+      order: 2;
+    }
+  
+    .footer {
+      position: fixed;
+      background-color: none;
+      margin-left: -150px;
+      margin-top: 130px;
+      order: 2;
+    }
+    
 }
