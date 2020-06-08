@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap");
+@-ms-viewport {
+  width: device-width;
+}
+html {
+  font-family: "Rubik";
+}
+html, body {
+  overflow: hidden;
+}
+.column {
+    display: block;
+    height: 75vw;
+}
+/*Phone*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;
+}
+.headerPrincipal {
+  background-color: #201B39;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+}
+#logoPrincipal {
+  width: 50vw;
+  padding-top: 30px;
+}
+body {
+  background-color: #0B081B;
+}
+.bodyprofile {
+position: static;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+overflow: visible;
+height: 78vh;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+-webkit-box-pack: start;
+-webkit-justify-content: flex-start;
+-ms-flex-pack: start;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+}
+.settingsicon {
+    width: 2em;
+    height: 2em;
+    stroke-width: 0;
+    stroke: #E54EBC;
+    fill: #E54EBC;
+}
+.userinfo {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.profilepic {
+    margin-top: 2rem;
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#profilepicuser {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+.textoprofile {
+    margin-top: 30rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55vw;
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 3rem;
+}
+.nickname {
+    font-weight: 400;
+    font-size: 1.4em;
+}
+.iconoubicacion {
+    width: 1.2em;
+    height: 1.2em;
+    stroke-width: 0;
+    stroke: #fff;
+    fill: #fff;
+  }
+.posthistory {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    margin-top: 2em;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-box-align:start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    /* border-radius: 80px 80px 0px 0px; */
+}
+#minipost {
+    width: 320px;
+    height: 320px;
+    background-color: #71D6D4;
+}
+.myposts {
+    width: 100vw;
+    font-size: 2.5em;
+    font-weight: 400;
+    color: gray;
+    margin: 1.5em 0 0 1.5em;
+}
+.control {
+    overflow: visible;
+    float: none;
+    clear: none;
+  background-color:#201b39;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 12vh;
+}
+.bodyNotFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  color: #fff;
+}
+  /* iconografía */
+.icon {
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    stroke-width: 0;
+    stroke: #E54EBC;
+    fill: #E54EBC;
+  }
+  .icon-calendar, .icon-user {
+    width: 3.5em;
+  }
+  .icon-plus, .icon-search {
+    width: 3.5em;
+  }
+/*Desktop*/
+@media (min-width: 1090px) {
+  body{
+    background: rgb(70,30,65);
+    background: linear-gradient(0deg, rgba(70,30,65,1) 0%, rgba(101,29,149,1) 100%);
+  }
+  .headerPrincipal {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(101,29,149);
+  background: linear-gradient(90deg, rgba(101,29,149,1) 0%, rgba(70,30,65,1) 100%);
+  z-index: 10000;
+  }
+  .bodyBox {
+    background-color: #0B081B;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin: 70px;
+    padding: 20px;
+    flex-direction: row;
+    -webkit-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
+  }
+  .bodyprofile {
+    background-color: #0B081B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1600px;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  #logoPrincipal {
+    display: flex;
+    width: 350px;
+    order: 2;
+    padding: 20px;
+  }
+  .footer {
+    position: fixed;
+    background-color: none;
+    margin-left: -150px;
+    margin-top: 53px;
+    order: 2;
+  }
+}
