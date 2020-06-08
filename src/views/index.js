@@ -1,4 +1,5 @@
 import { userLogin, statusUser, loginGoogle } from "../lib/fireBase.js";
+import {routes} from '../routes/index.routes.js';
 
 
 export default () => {
@@ -71,12 +72,10 @@ export default () => {
     statusUser();
     //location.hash ='#/userProfile';
   });
-
   
   btnGoogle.addEventListener("click", (e) => {
     e.preventDefault();
     loginGoogle();
-
   });
   
   return divElement;
