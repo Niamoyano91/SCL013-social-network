@@ -13,10 +13,10 @@ export default () => {
     <div class="bodyForgetPassword">
       <div class="textForgetPassword">
         <p class="textForgetPass">
-            Por favor inserta tu dirección de e-mail a continuación para enviarte la información de recuperación de cuenta.
+            Por favor inserta la dirección de tu e-mail registrado a continuación para enviarte la información de recuperación de cuenta.
         </p>
         <input type="email" id="passRecover" class="email" placeholder="     E-mail">
-        <button id="resetBtn">enviar</button>
+        <button id="resetBtn" class="simpleBtn">enviar</button>
     
       </div>
     </div>
