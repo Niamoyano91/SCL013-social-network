@@ -1,7 +1,8 @@
 import { routes } from "./routes/index.routes.js";
 
+
 // Your web app's Firebase configuration
-var firebaseConfig = {
+  var firebaseConfig = {
   apiKey: "AIzaSyCi3YgirCn8pkyynZD1ivOy0l2zHgeXcXY",
   authDomain: "oldbeat-fdfd8.firebaseapp.com",
   databaseURL: "https://oldbeat-fdfd8.firebaseio.com",
@@ -12,7 +13,6 @@ var firebaseConfig = {
   measurementId: "G-27R5W16948",
 
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();

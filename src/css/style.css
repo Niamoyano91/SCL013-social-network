@@ -153,7 +153,8 @@ body {
 }
 .bodyUserGoogle,
 .bodyUserRegistrar,
-.bodyUserLogin {
+.bodyUserLogin,
+.registeredUser{
   background-color: #0b081b;
   display: flex;
   align-items: center;
@@ -183,6 +184,13 @@ body {
 }
 
 #bodyUserRegistrar {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+#registeredUser{
+  margin-top: 70px;
   color: white;
   text-decoration: none;
   font-size: 14px;
@@ -269,11 +277,17 @@ body {
     order: 1;
   }
 
+  #registeredUser {
+    margin-left: -370px;
+    margin-top: -450px;
+    margin-right: 0px;
+    order: 1;
+  }
+
   .userlogin {
     padding-left: 0px;
     order: 2;
   }
-
 
   .bodyUserGoogle{
     display: flex;

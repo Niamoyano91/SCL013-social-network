@@ -55,10 +55,12 @@ export default () => {
     const password = divElement.querySelector("#password").value;
     userLogin(email, password);
     statusUser();
+    //location.hash ='#/userProfile';
   });
 
   btnGoogle.addEventListener("click", () => {
-    loginGoogle()
+    loginGoogle();
+    //location.hash ='#/userProfile';
   });
 
   return divElement;

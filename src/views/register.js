@@ -1,6 +1,4 @@
-import {authRegister, statusUser} from "../lib/fireBase.js";
-
-
+import { statusUser,checkEmail} from "../lib/fireBase.js";
 
 export default () => {
   const views = `
@@ -15,12 +13,16 @@ export default () => {
         <div class="bodyUser">
           <div class="userlogin">
             <p class="txtUser"></p>
-            <input type="email" id="email" class="email" placeholder="     Usuario">
+            <input type="email" id="email" class="email" placeholder="     Correo electronico">
             <p class="txtPassword"></p>
             <input type="password" id="password" class="password" placeholder="     Contraseña">
-            </br>
-            <a href="#" id=passRecover>¿Olvidaste tu contraseña?</a>
-            </br>
+            <p class="txtUser"></p>
+            <input type="email" id="name" class="email" placeholder="     Nombre">
+            <p class="txtUser"></p>
+            <input type="email" id="nickName" class="email" placeholder="     Nickname">
+            <p class="txtUser"></p>
+            <input type="email" id="city" class="email" placeholder="     Ciudad">
+            <br>
             <a href="#" id="btnLogin" class="btnLogin">
               <span id="span1"></span>
               <span id="span2"></span>
@@ -30,12 +32,9 @@ export default () => {
           </div>
         </div>
         <!--  -->
-        <div class="bodyUserGoogle">
-          <a href="#">Conectar con Google</a>
-        </div>
-        <div class="bodyUserRegistrar">
-          <p id= "bodyUserRegistrar" >Nos encanta que estes aqui!!!! Tienes Cuenta?  </p> 
-          <a href="#/home" id="register" > Ingresa AQUI!!! </a>
+   
+        <div class="registeredUser">
+          <p id= "registeredUser">¿Tienes Cuenta?<a href="#/home" id="register" > Ingresa AQUI!!! </a></p> 
         </div>
         <!--  -->
         <div class="footer">
@@ -54,10 +53,22 @@ export default () => {
   btnLogin.addEventListener("click", () => {
     const email = divElement.querySelector("#email").value;
     const password = divElement.querySelector("#password").value;
+    const name = divElement.querySelector("#name").value;
+    const nickName = divElement.querySelector("#nickName").value;
+    const city = divElement.querySelector("#city").value;
+    if(email.length==0 || password.length==0 || name.length==0 || nickName.length==0 || city.length==0 ){
+      alert("Completa los campos vacios");
+    }else{
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(credencial=>{
+        return firebase.firestore().collection('users').doc(credencial.user.uid).set({
+          email,name,nickName,city})
+      }).then(()=>{      
+        checkEmail();
+      })
+    };
     console.log(email, password);
-    authRegister(email, password);
     statusUser();
+    location.hash='#/home';
   });
-
   return divElement;
 };  
