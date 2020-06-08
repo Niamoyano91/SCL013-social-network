@@ -19,7 +19,7 @@ export default () => {
             <p class="txtPassword"></p>
             <input type="password" id="password" class="password" placeholder="     Contraseña">
             </br>
-            <a href="#" id=passRecover>¿Olvidaste tu contraseña?</a>
+            
             </br>
             <a href="#" id="btnLogin" class="btnLogin">
               <span id="span1"></span>
@@ -30,11 +30,8 @@ export default () => {
           </div>
         </div>
         <!--  -->
-        <div class="bodyUserGoogle">
-          <a href="#">Conectar con Google</a>
-        </div>
-        <div class="bodyUserRegistrar">
-          <p id= "bodyUserRegistrar" >Nos encanta que estes aqui!!!! Tienes Cuenta?  </p> 
+        <div class="bodyUserWithAcount">
+          <p id= "bodyUserRegistrar" >!!!! Tienes Cuenta?  </p> 
           <a href="#/home" id="register" > Ingresa AQUI!!! </a>
         </div>
         <!--  -->
@@ -56,7 +53,6 @@ export default () => {
     const password = divElement.querySelector("#password").value;
     console.log(email, password);
     authRegister(email, password);
-    statusUser();
   });
 
   return divElement;
