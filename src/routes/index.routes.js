@@ -27,7 +27,6 @@ const routes = (routes) => {
     case "#/userPost":
       return content.appendChild(post());
 
-
     case "#/userProfile":
       return content.appendChild(UserProfile());
 

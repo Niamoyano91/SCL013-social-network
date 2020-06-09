@@ -21,14 +21,20 @@ Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
 
 ## 2. Objetivos
 ## 3. Historias de usuario
-######  Historia de usuario 0
-A. Pantalla de inicio web.
 ######  Historia de usuario 1
+A. Usuario ingresa a pantalla inicial y aparece la opción (botón) para registrarse.
+B. Usuario completa formulario y se se envía correo de verificación a e-mail entregado.
 ######  Historia de usuario 2
+A. Usuario ingresa a travez de cuenta de google.
+B. Usuario puede recuperar contraseña por medio del link "olvidaste contraseña".
 ######  Historia de usuario 3
+A.Usuario ingresa a Home y puede ver publicaciones de forma ascendente por fecha.
+B.Usuario puede crear publicaciones(diferente disposición de elementos según dispositivo)
 ######  Historia de usuario 4
+A.Usuario ingresa a su perfil , se pueden ver sus datos e historial de publicaciones.
 ######  Historia de usuario 5
 ######  Historia de usuario 6
+######  Historia de usuario 7
 
 
 ## 4. Decisiones de Diseño
