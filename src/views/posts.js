@@ -1,5 +1,5 @@
-import { logOut} from "../lib/fireBase.js";
-import { db } from "../main.js";
+import { logOut } from '../lib/fireBase.js';
+import { db } from '../main.js';
 
 export default () => {
   const views = `
