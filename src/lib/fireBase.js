@@ -29,7 +29,7 @@ export const statusUser = () => {
         alert('Debe verificar su correo antes de ingresar');
       } else {
         console.log("Email verificado");
-        location.hash = "#/userPost";
+        location.hash = '#/userPost';
         txtVerificado = "Email verificado";
         console.log(`Usuario Logueado ${email}, ${txtVerificado}`);
       }

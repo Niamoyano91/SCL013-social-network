@@ -15,8 +15,20 @@
 ***
 
 ## 1. Resumen del proyecto
+GitHub Pages: https://niamoyano91.github.io/SCL013-social-network/ 
+Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
 ## 2. Objetivos
 ## 3. Historias de usuario
+######  Historia de usuario 0
+A. Pantalla de inicio web.
+######  Historia de usuario 1
+######  Historia de usuario 2
+######  Historia de usuario 3
+######  Historia de usuario 4
+######  Historia de usuario 5
+######  Historia de usuario 6
+
+
 ## 4. Decisiones de Diseño
 ###### A. Prototipo en baja fidelidad
 Prototipo en InVision(https://nia891374.invisionapp.com/freehand/socnet-fb448y9ac?v=Ow%2Be1YqDBIUICAi7%2BiSD2w%3D%3D&linkshare=urlcopied)
