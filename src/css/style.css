@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap");
-@-ms-viewport {   
+@-ms-viewport {
   width: device-width;
 }
 
@@ -21,7 +21,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 10vh;
+  height: 13vh;
 }
 
 #logoPrincipal {
@@ -239,9 +239,9 @@ body {
     margin-right: 10em;
     margin-top: 3em;
     font-weight: 300;
-  
+
   }
-  
+
   .textForgetPassword,
   .textForgetPass {
       color: #FFFFFF;
@@ -254,14 +254,12 @@ body {
 /*Desktop*/
 @media (min-width: 1090px) {
 
-  body{
+  html, body{
     background: rgb(70,30,65);
     background: linear-gradient(0deg, rgba(70,30,65,1) 0%, rgba(101,29,149,1) 100%);
-
   }
 
   .bodyBox {
-    background-color: #0b081b;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -320,9 +318,9 @@ body {
       margin-right: 10em;
       font-weight: 300;
       margin-bottom: 3em;
-    
+
     }
-    
+
     .textForgetPassword,
     .textForgetPass {
         color: #FFFFFF;
@@ -355,9 +353,9 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     }
-    
+
     .simpleBtn:active {
-      border-width: 0px 0px 2px 0px; 
+      border-width: 0px 0px 2px 0px;
       transform: translateY(4px);
       opacity: 0.9;
   }
@@ -371,9 +369,9 @@ body {
       margin-right: 10em;
       font-weight: 300;
       margin-bottom: 3em;
-    
+
     }
-    
+
     .textForgetPassword,
     .textForgetPass {
         color: #FFFFFF;
@@ -406,9 +404,9 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     }
-    
+
     .simpleBtn:active {
-      border-width: 0px 0px 2px 0px; 
+      border-width: 0px 0px 2px 0px;
       transform: translateY(4px);
       opacity: 0.9;
   }
