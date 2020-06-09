@@ -15,8 +15,10 @@
 ***
 
 ## 1. Resumen del proyecto
-GitHub Page: https://niamoyano91.github.io/SCL013-social-network/ 
+GitHub Page: https://niamoyano91.github.io/SCL013-social-network/
+
 Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
+
 ## 2. Objetivos
 ## 3. Historias de usuario
 ######  Historia de usuario 0
