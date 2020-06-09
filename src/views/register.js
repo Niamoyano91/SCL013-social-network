@@ -1,4 +1,5 @@
 import { statusUser, checkEmail } from '../lib/fireBase.js';
+import { db, auth} from '../main.js';
 
 export default () => {
   const views = `
@@ -59,8 +60,8 @@ export default () => {
     if (email.length == 0 || password.length == 0 || name.length == 0 || nickName.length==0 || city.length==0){
       alert("Completa los campos vacios");
     } else{
-      firebase.auth().createUserWithEmailAndPassword(email, password).then(credencial=>{
-        return firebase.firestore().collection('users').doc(credencial.user.uid).set({
+      auth.createUserWithEmailAndPassword(email, password).then(credencial=>{
+        return db.collection('users').doc(credencial.user.uid).set({
           email,name,nickName,city})
       }).then(() => {      
         checkEmail();

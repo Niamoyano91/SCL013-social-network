@@ -15,7 +15,8 @@ import { routes } from "./routes/index.routes.js";
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-export let db = firebase.firestore();
+export const db = firebase.firestore();
+export const auth = firebase.auth();
 // Rutas 
 routes(window.location.hash);
 window.addEventListener("hashchange", () => {

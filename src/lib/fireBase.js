@@ -1,3 +1,4 @@
+import {auth} from '../main.js';
 // Funcion Registrar Usuario
 /*export const authRegister = (email, password) =>
 firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
@@ -12,7 +13,7 @@ firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (
 // Funcion Inicio de sesion de Usuario
 
 export const statusUser = () => {
-  firebase.auth().onAuthStateChanged(function (user) {
+  auth.onAuthStateChanged(function (user) {
     if (user) {
       var displayName = user.displayName;
       var email = user.email;
@@ -40,11 +41,11 @@ export const statusUser = () => {
 };
 
 
-export const logOut = () => firebase.auth().signOut();
+export const logOut = () => auth.signOut();
 
 
 export const checkEmail = () =>{
-        var user = firebase.auth().currentUser;
+        var user = auth.currentUser;
         user.sendEmailVerification().then(function () {
         }).catch(function (error) {
         });
@@ -53,7 +54,7 @@ export const checkEmail = () =>{
  //Funcion Inicio de sesion con Google
  export const loginGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    auth.signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
@@ -106,7 +107,7 @@ export const checkEmail = () =>{
 
 // Reseteo de contraseña
 export const resetPassword = (emailAddress) => { 
-  firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+  auth.sendPasswordResetEmail(emailAddress).then(function() {
     // Email sent.
   }).catch(function(error) {
     // An error happened.
@@ -116,7 +117,7 @@ export const resetPassword = (emailAddress) => {
 
 //Funcion Inicio de sesion de Usuario
 export const userLogin = (email, password) =>
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+auth.signInWithEmailAndPassword(email, password).catch(function (error) {
     var errorCode = error.code;
     var errorMessage = error.message;
     alert(errorMessage);
