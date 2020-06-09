@@ -1,4 +1,4 @@
-import { statusUser,checkEmail} from "../lib/fireBase.js";
+import { statusUser, checkEmail } from '../lib/fireBase.js';
 
 export default () => {
   const views = `
@@ -44,31 +44,31 @@ export default () => {
     </div>
     
       <!-- Fin -->
-	`;
-  const divElement = document.createElement("div");
+`;
+  const divElement = document.createElement('div');
   divElement.innerHTML = views;
 
-  const btnLogin = divElement.querySelector("#btnLogin");
+  const btnLogin = divElement.querySelector('#btnLogin');
 
-  btnLogin.addEventListener("click", () => {
-    const email = divElement.querySelector("#email").value;
-    const password = divElement.querySelector("#password").value;
-    const name = divElement.querySelector("#name").value;
-    const nickName = divElement.querySelector("#nickName").value;
-    const city = divElement.querySelector("#city").value;
-    if(email.length==0 || password.length==0 || name.length==0 || nickName.length==0 || city.length==0 ){
+  btnLogin.addEventListener('click', () => {
+    const email = divElement.querySelector('#email').value;
+    const password = divElement.querySelector('#password').value;
+    const name = divElement.querySelector('#name').value;
+    const nickName = divElement.querySelector('#nickName').value;
+    const city = divElement.querySelector('#city').value;
+    if (email.length == 0 || password.length == 0 || name.length == 0 || nickName.length==0 || city.length==0){
       alert("Completa los campos vacios");
-    }else{
+    } else{
       firebase.auth().createUserWithEmailAndPassword(email, password).then(credencial=>{
         return firebase.firestore().collection('users').doc(credencial.user.uid).set({
           email,name,nickName,city})
-      }).then(()=>{      
+      }).then(() => {      
         checkEmail();
-      })
-    };
+      });
+    }
     console.log(email, password);
     statusUser();
-    location.hash='#/home';
+    location.hash = '#/home';
   });
   return divElement;
-};  
+};

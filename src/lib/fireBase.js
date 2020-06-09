@@ -9,9 +9,9 @@ firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (
         checkEmail();
       });*/
 
-//Funcion Inicio de sesion de Usuario
+// Funcion Inicio de sesion de Usuario
 
- export const statusUser = () => {
+export const statusUser = () => {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var displayName = user.displayName;

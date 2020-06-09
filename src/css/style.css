@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap");
-@-ms-viewport {   
+@-ms-viewport {
   width: device-width;
 }
 
 html {
   font-family: "Rubik";
-}
-
-html, body {
-  overflow: hidden;
 }
 
 html, body {
@@ -234,18 +230,36 @@ body {
   border-color: white;
 }
 
+.bodyForgetPassword {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-top: 3em;
+    font-weight: 300;
+
+  }
+
+  .textForgetPassword,
+  .textForgetPass {
+      color: #FFFFFF;
+      height: 15vh;
+      font-size: 10pt;
+      line-height: 1.5rem;
+  }
+
 
 /*Desktop*/
 @media (min-width: 1090px) {
 
-  body{
+  html, body{
     background: rgb(70,30,65);
     background: linear-gradient(0deg, rgba(70,30,65,1) 0%, rgba(101,29,149,1) 100%);
-
   }
 
   .bodyBox {
-    background-color: #0b081b;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -293,6 +307,108 @@ body {
     margin-left: -180px;
     order: 3;
     align-content: center;
+  }
+
+  .bodyForgetPassword {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 45vh;
+      margin-left: 10em;
+      margin-right: 10em;
+      font-weight: 300;
+      margin-bottom: 3em;
+
+    }
+
+    .textForgetPassword,
+    .textForgetPass {
+        color: #FFFFFF;
+        height: 12vh;
+        font-size: 10pt;
+        line-height: 1.5rem;
+    }
+
+  #logoGoogle{
+    width: 150px;
+    border-color: white;
+    margin-top: -20px;
+  }
+
+  .simpleBtn {
+    outline: none;
+    width: 90px;
+    height: 40px;
+    background: #71D6D4;
+    border-style: solid;
+    border-width: 0px 0px 5px 0px;
+    border-color: #37BEBB;
+    border-radius: 4px;
+    color: #2E9E9C;
+    cursor: pointer;
+    font-family: "Rubik";
+    font-size: 1em;
+    font-weight: 500;
+    transition: .1s;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    }
+
+    .simpleBtn:active {
+      border-width: 0px 0px 2px 0px;
+      transform: translateY(4px);
+      opacity: 0.9;
+  }
+
+  .bodyForgetPassword {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 45vh;
+      margin-left: 10em;
+      margin-right: 10em;
+      font-weight: 300;
+      margin-bottom: 3em;
+
+    }
+
+    .textForgetPassword,
+    .textForgetPass {
+        color: #FFFFFF;
+        height: 12vh;
+        font-size: 10pt;
+        line-height: 1.5rem;
+    }
+
+  #logoGoogle{
+    width: 150px;
+    border-color: white;
+    margin-top: -20px;
+  }
+
+  .simpleBtn {
+    outline: none;
+    width: 90px;
+    height: 40px;
+    background: #71D6D4;
+    border-style: solid;
+    border-width: 0px 0px 5px 0px;
+    border-color: #37BEBB;
+    border-radius: 4px;
+    color: #2E9E9C;
+    cursor: pointer;
+    font-family: "Rubik";
+    font-size: 1em;
+    font-weight: 500;
+    transition: .1s;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    }
+
+    .simpleBtn:active {
+      border-width: 0px 0px 2px 0px;
+      transform: translateY(4px);
+      opacity: 0.9;
   }
 
   .footer {

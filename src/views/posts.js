@@ -5,13 +5,13 @@ export default () => {
   const views = `
   <!-- Menu superior -->
 <nav class="nav-flex">
-    <a class="logo" id="home" href="#"><img src="img/logo2-01.png" alt=""></a>
+    <a class="logo" id="home" href="#"><img src="img/logo.png" alt=""></a>
     <ul>
         <input id="search" placeholder="Buscar">
     </ul>
     <ul class="navigation">
         <li>
-            <div><img class='imgPerfil' src="img/perfilUsuario.jpg"></div>
+            <div><a href="#/userProfile"><img class='imgPerfil' src="img/perfilUsuario.jpg"></a></div>
         </li>
         <li><a id="btnLogOut" href="#/home">Cerrar Sesion</a></li>
 
