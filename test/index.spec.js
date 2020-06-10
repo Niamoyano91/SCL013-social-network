@@ -1,8 +1,13 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from "../src/lib/index";
+import { validateInput } from '../src/lib/validate.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+describe('validateInput', () => {
+  test('debería ser una función', () => {
+    expect(typeof validateInput).toBe('function');
+  });
+  test('Deberia retornar false para campos incompletos', () => {
+    expect(validateInput('prueba@gmail.com', '')).toBe(false);
+  });
+  test('Deberia retornar true para campos completos', () => {
+    expect(validateInput('prueba@gmail.com', 'Ingresar9999')).toBe(true);
   });
 });

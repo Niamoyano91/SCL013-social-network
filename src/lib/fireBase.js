@@ -1,41 +1,44 @@
-import {auth} from '../main.js';
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-const-assign */
+// eslint-disable-next-line import/no-cycle
+import { auth } from '../main.js';
 // Funcion Registrar Usuario
-/*export const authRegister = (email, password) =>
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-      })
-      .then(function () {
-        checkEmail();
-      });*/
+// export const authRegister = (email, password) =>
+// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         alert(errorMessage);
+//       })
+//       .then(function () {
+//         checkEmail();
+//       });
 
 // Funcion Inicio de sesion de Usuario
 
 export const statusUser = () => {
-  auth.onAuthStateChanged(function (user) {
+  auth.onAuthStateChanged((user) => {
     if (user) {
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      var name = user.name;
-      var txtVerificado = "";
+      // const displayName = user.displayName;
+      const email = user.email;
+      const emailVerified = user.emailVerified;
+      // const photoURL = user.photoURL;
+      // const isAnonymous = user.isAnonymous;
+      // const uid = user.uid;
+      // const providerData = user.providerData;
+      // const name = user.name;
+      const txtVerificado = '';
       if (emailVerified === false) {
-        console.log("Email no Verificado");
-        txtVerificado = "Email no verificado";
+        console.log('Email no Verificado');
+        txtVerificado = 'Email no verificado';
         alert('Debe verificar su correo antes de ingresar');
       } else {
-        console.log("Email verificado");
+        console.log('Email verificado');
         location.hash = '#/userPost';
-        txtVerificado = "Email verificado";
+        txtVerificado = 'Email verificado';
         console.log(`Usuario Logueado ${email}, ${txtVerificado}`);
       }
     } else {
-      console.log("Usuario NO Logueado ");
+      console.log('Usuario NO Logueado');
     }
   });
 };
@@ -44,81 +47,48 @@ export const statusUser = () => {
 export const logOut = () => auth.signOut();
 
 
-export const checkEmail = () =>{
-        var user = auth.currentUser;
-        user.sendEmailVerification().then(function () {
-        }).catch(function (error) {
-        });
- }
+export const checkEmail = () => {
+  const user = auth.currentUser;
+  user.sendEmailVerification().then(() => {
+  }).catch(() => {
+  });
+};
 
- //Funcion Inicio de sesion con Google
- export const loginGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
- }
-
-
-
-/*export const loginGoogle = () => {
+// Funcion Inicio de sesion con Google
+export const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(provider)
-    .then(function (result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      console.log("token del usuario ", token);
-      // The signed-in user info.
-      var user = result.user;
-      console.log("usuario google ", user);
-      // ...
-      location.hash = '#/userPost';
-    })
-    .catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      console.log("Error Codigo ", errorCode);
-      var errorMessage = error.message;
-      console.log("Mensaje de error ", errorMessage);
-      // The email of the user's account used.
-      var email = error.email;
-      console.log("Email ingresado ", email);
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      console.log("credencial ", credential);
-      // ...
-    });
-};*/
+  auth.signInWithPopup(provider).then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user);
+    location.hash = '#/userPost';
+  // ...
+  });
+  // .catch((error) => {
+  // Handle Errors here.
+  // const errorCode = error.code;
+  // const errorMessage = error.message;
+  // The email of the user's account used.
+  // const email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  // const credential = error.credential;
+  // ...
+  // });
+};
 
 // Reseteo de contraseña
-export const resetPassword = (emailAddress) => { 
-  auth.sendPasswordResetEmail(emailAddress).then(function() {
+export const resetPassword = (emailAddress) => {
+  auth.sendPasswordResetEmail(emailAddress).then(() => {
     // Email sent.
-  }).catch(function(error) {
+  }).catch(() => {
     // An error happened.
   });
-  
-}
+};
 
-//Funcion Inicio de sesion de Usuario
-export const userLogin = (email, password) =>
-auth.signInWithEmailAndPassword(email, password).catch(function (error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    alert(errorMessage);
+// Funcion Inicio de sesion de Usuario
+// eslint-disable-next-line max-len
+export const userLogin = (email, password) => auth.signInWithEmailAndPassword(email, password).catch((error) => {
+  // const errorCode = error.code;
+  const errorMessage = error.message;
+  alert(errorMessage);
 });

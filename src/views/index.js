@@ -1,5 +1,6 @@
-import { userLogin, statusUser, loginGoogle } from "../lib/fireBase.js";
-import {routes} from '../routes/index.routes.js';
+/* eslint-disable import/no-cycle */
+import { userLogin, statusUser, loginGoogle } from '../lib/fireBase.js';
+import { validateInput } from '../lib/validate.js';
 
 
 export default () => {
@@ -54,31 +55,33 @@ export default () => {
     </div>
     
       <!-- Fin -->
-	`;
-  const divElement = document.createElement("div");
+`;
+  const divElement = document.createElement('div');
   divElement.innerHTML = views;
 
-  const btnLogin = divElement.querySelector("#btnLogin");
+  const btnLogin = divElement.querySelector('#btnLogin');
 
-  const btnGoogle= divElement.querySelector("#loginGoogle");
-  const resetPassword = divElement.querySelector("#passRecover");
+  const btnGoogle = divElement.querySelector('#loginGoogle');
 
 
-  btnLogin.addEventListener("click", (e) => {
+  btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = divElement.querySelector("#email").value;
-    const password = divElement.querySelector("#password").value;
-    userLogin(email, password);
-    statusUser();
-    location.hash ='#/userProfile';
+    const email = divElement.querySelector('#email').value;
+    const password = divElement.querySelector('#password').value;
+    const valid = validateInput(email, password);
+
+    if (valid === false) {
+      alert('Por favor llenar los campos');
+    } else {
+      userLogin(email, password);
+      statusUser();
+    }
   });
-  
-  btnGoogle.addEventListener("click", (e) => {
+
+  btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle();
   });
-  
+
   return divElement;
-
-}; 
-
+};

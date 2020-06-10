@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   overflow: visible;
   height: 78vh;
   -webkit-box-orient: vertical;

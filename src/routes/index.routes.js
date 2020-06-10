@@ -1,33 +1,35 @@
-import Inicio from "../views/index.js";
-import Registro from "../views/register.js";
-import HTTP404 from "../views/404.js";
-import post from "../views/posts.js";
-import ResetPassword from "../views/passwordReset.js";
-import UserProfile from "../views/userProfile.js";
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-cycle */
+import Inicio from '../views/index.js';
+import Registro from '../views/register.js';
+import HTTP404 from '../views/404.js';
+import post from '../views/posts.js';
+import ResetPassword from '../views/passwordReset.js';
+import UserProfile from '../views/userProfile.js';
 
-const content = document.getElementById("container");
+const content = document.getElementById('container');
 
 const routes = (routes) => {
-  content.innerHTML = "";
+  content.innerHTML = '';
 
   // console.log(routes);
 
   switch (routes) {
-    case "":
+    case '':
       return content.appendChild(Inicio());
-    case "#/home":
+    case '#/home':
       return content.appendChild(Inicio());
 
-    case "#/userRegister":
+    case '#/userRegister':
       return content.appendChild(Registro());
 
-    case "#/resetpassword":
+    case '#/resetpassword':
       return content.appendChild(ResetPassword());
-      
-    case "#/userPost":
+
+    case '#/userPost':
       return content.appendChild(post());
 
-    case "#/userProfile":
+    case '#/userProfile':
       return content.appendChild(UserProfile());
 
     default:

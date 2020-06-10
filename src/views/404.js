@@ -1,5 +1,5 @@
 export default () => {
-    const views = `
+  const views = `
       <!-- Inicio -->
       <div id="headerPrincipal" class="headerPrincipal">
         <header class="headerContent">
@@ -19,8 +19,8 @@ export default () => {
       </div>
       <!-- Fin -->
       `;
-    const divElement = document.createElement("div");
-    divElement.innerHTML = views;
-  
-    return divElement;
-  }; 
+  const divElement = document.createElement('div');
+  divElement.innerHTML = views;
+
+  return divElement;
+};

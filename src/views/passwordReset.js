@@ -1,4 +1,5 @@
-import { resetPassword } from "../lib/fireBase.js";
+/* eslint-disable import/no-cycle */
+import { resetPassword } from '../lib/fireBase.js';
 
 export default () => {
   const views = `
@@ -42,21 +43,18 @@ export default () => {
 
     
       <!-- Fin -->
-	`;
-  const divElement = document.createElement("div");
+`;
+  const divElement = document.createElement('div');
   divElement.innerHTML = views;
 
-  const resetButton = divElement.querySelector("#btnLogin");
-  resetButton.addEventListener("click", () => {
-    const emailAddress = divElement.querySelector("#email").value;
+  const resetButton = divElement.querySelector('#btnLogin');
+  resetButton.addEventListener('click', () => {
+    const emailAddress = divElement.querySelector('#email').value;
     resetPassword(emailAddress);
     alert('Revisa tu Correo');
+    // eslint-disable-next-line no-restricted-globals
     location.hash = '#/home';
-
   });
 
   return divElement;
-
-
-
-}; 
+};
