@@ -4,7 +4,7 @@
 }
 
 html {
-  font-family: "Rubik";
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
 html, body {
@@ -57,7 +57,7 @@ body {
   padding: 5px 0px;
   margin-bottom: 15px;
   text-align: center;
-  font-family: "RubikFina";
+  font-family: "RubikFina", Arial, Helvetica, sans-serif;
 }
 .email:focus,
 .password:focus {
@@ -68,14 +68,14 @@ body {
 ::placeholder {
   text-align: justify;
   font-size: 15px;
-  font-family: "Rubik";
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 /* Boton de Iniciar sesion Inicio*/
 .btnLogin {
   padding: 10px 20px;
   display: flex;
   margin-top: 20px;
-  display: inline-block;
+  /*display: inline-block;*/
   position: relative;
   letter-spacing: 2px;
   font-size: 24px;
@@ -171,6 +171,11 @@ body {
   align-items: center;
   justify-content: center;
 } */
+a{
+  justify-content: center;
+  align-items: center;
+} 
+
 .bodyUser a {
   color: #fff;
   text-decoration: none;
@@ -202,7 +207,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Rubik";
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
   font-size: 10px;
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -346,7 +351,7 @@ body {
     border-radius: 4px;
     color: #2E9E9C;
     cursor: pointer;
-    font-family: "Rubik";
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
     font-size: 1em;
     font-weight: 500;
     transition: .1s;
@@ -360,7 +365,7 @@ body {
       opacity: 0.9;
   }
 
-  .bodyForgetPassword {
+  /*.bodyForgetPassword {
     display: flex;
       align-items: center;
       justify-content: center;
@@ -370,23 +375,23 @@ body {
       font-weight: 300;
       margin-bottom: 3em;
 
-    }
+    }*/
 
-    .textForgetPassword,
+    /*.textForgetPassword,
     .textForgetPass {
         color: #FFFFFF;
         height: 12vh;
         font-size: 10pt;
         line-height: 1.5rem;
-    }
+    }*/
 
-  #logoGoogle{
+  /*#logoGoogle{
     width: 150px;
     border-color: white;
     margin-top: -20px;
-  }
+  }*/
 
-  .simpleBtn {
+  /*.simpleBtn {
     outline: none;
     width: 90px;
     height: 40px;
@@ -409,7 +414,7 @@ body {
       border-width: 0px 0px 2px 0px;
       transform: translateY(4px);
       opacity: 0.9;
-  }
+  }*/
 
   .footer {
     position: fixed;
@@ -419,11 +424,11 @@ body {
     order: 2;
   }
 
-  #logoGoogle{
+  /*#logoGoogle{
     width: 150px;
     border-color: white;
     margin-top: -20px;
-  }
+  }*/
 }
 
 /*Boton Google*/
@@ -438,12 +443,11 @@ body {
   width:200px;
 	text-decoration:none;
   border-radius:20px;
-  font-family: "Rubik";
+  font-family: "Rubik",Arial, Helvetica, sans-serif;
 }
-a{
-    justify-content: center;
-    align-items: center;
-}
+
+
+
 img{
     padding-right: .3em;
     width: 20px;
