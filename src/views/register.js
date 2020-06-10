@@ -71,6 +71,7 @@ export default () => {
     const valid = validateRegister(email, password, repitPassword, name, nickName, city);
     // eslint-disable-next-line no-undef
     const validPassword = validatePassword(password, repitPassword);
+    const validatePasswordCharactersp = validatePasswordCharacters(password);
     // eslint-disable-next-line no-bitwise
     if (valid === false & validPassword === false) {
       alert('Completa los campos vacios y contraseña incorrecta');
@@ -80,8 +81,7 @@ export default () => {
     // eslint-disable-next-line no-bitwise
     } else if (valid === false & validPassword === true) {
       alert('Completa los campos');
-    } else if (password) {
-      validatePasswordCharacters();
+    } else if (validatePasswordCharactersp === false) {
       alert('Contraseña debe tener minimo 6 caracteres');
     } else if (email) {
       validateEmail();
