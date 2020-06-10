@@ -32,6 +32,22 @@ html, body {
 body {
   background-color: #0b081b;
 }
+
+input[type=email], input[type=password] {  
+  color:#abacb4; 
+  background-color:#151728; 
+  font-size: 10pt; 
+  border-radius:5px; 
+  border-width:1px; 
+  text-align:center; 
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  padding:6px;
+
+} 
+input[type=email]:focus, input[type=password]:focus { 
+  outline: none; 
+}
 .bodyUser {
   display: flex;
   align-items: center;

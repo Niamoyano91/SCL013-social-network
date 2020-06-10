@@ -3,6 +3,9 @@
 /* eslint-disable import/no-cycle */
 import { statusUser, checkEmail } from '../lib/fireBase.js';
 import { db, auth } from '../main.js';
+import {
+  validateRegister, validatePassword, validateEmail, validatePasswordCharacters,
+} from '../lib/validate.js';
 
 export default () => {
   const views = `
@@ -20,6 +23,8 @@ export default () => {
             <input type="email" id="email" class="email" placeholder="     Correo electronico">
             <p class="txtPassword"></p>
             <input type="password" id="password" class="password" placeholder="     Contraseña">
+            <p class="txtPassword"></p>
+            <input type="password" id="password2" class="password" placeholder="     Repite tu contraseña">
             <p class="txtUser"></p>
             <input type="email" id="name" class="email" placeholder="     Nombre">
             <p class="txtUser"></p>
@@ -54,26 +59,43 @@ export default () => {
 
   const btnLogin = divElement.querySelector('#btnLogin');
 
-  btnLogin.addEventListener('click', () => {
+  btnLogin.addEventListener('click', (event) => {
+    event.preventDefault();
     const email = divElement.querySelector('#email').value;
     const password = divElement.querySelector('#password').value;
+    const repitPassword = divElement.querySelector('#password2').value;
     const name = divElement.querySelector('#name').value;
     const nickName = divElement.querySelector('#nickName').value;
     const city = divElement.querySelector('#city').value;
-    // eslint-disable-next-line eqeqeq
-    if (email.length === 0 || password.length === 0 || name.length === 0
-      || nickName.length === 0 || city.length === 0) {
-      alert('Completa los campos vacios');
+    // eslint-disable-next-line no-undef
+    const valid = validateRegister(email, password, repitPassword, name, nickName, city);
+    // eslint-disable-next-line no-undef
+    const validPassword = validatePassword(password, repitPassword);
+    // eslint-disable-next-line no-bitwise
+    if (valid === false & validPassword === false) {
+      alert('Completa los campos vacios y contraseña incorrecta');
+    // eslint-disable-next-line no-bitwise
+    } else if (valid === true & validPassword === false) {
+      alert('Contraseña incorrecta');
+    // eslint-disable-next-line no-bitwise
+    } else if (valid === false & validPassword === true) {
+      alert('Completa los campos');
+    } else if (password) {
+      validatePasswordCharacters();
+      alert('Contraseña debe tener minimo 6 caracteres');
+    } else if (email) {
+      validateEmail();
+      alert('Email incorrecto');
     } else {
       auth.createUserWithEmailAndPassword(email, password).then(credencial => db.collection('users').doc(credencial.user.uid).set({
         email, name, nickName, city,
       })).then(() => {
         checkEmail();
       });
+      console.log(email, password);
+      statusUser();
+      location.hash = '#/home';
     }
-    console.log(email, password);
-    statusUser();
-    location.hash = '#/home';
   });
   return divElement;
 };
