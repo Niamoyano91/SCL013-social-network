@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { resetPassword } from '../lib/fireBase.js';
 
 export default () => {
@@ -51,6 +52,7 @@ export default () => {
     const emailAddress = divElement.querySelector('#email').value;
     resetPassword(emailAddress);
     alert('Revisa tu Correo');
+    // eslint-disable-next-line no-restricted-globals
     location.hash = '#/home';
   });
 

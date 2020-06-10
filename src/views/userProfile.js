@@ -85,7 +85,7 @@ export default () => {
     
   </div>
 </div>`;
-  const divElement = document.createElement("div");
+  const divElement = document.createElement('div');
   divElement.innerHTML = views;
   return divElement;
 };

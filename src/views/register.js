@@ -1,5 +1,8 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-cycle */
 import { statusUser, checkEmail } from '../lib/fireBase.js';
-import { db, auth} from '../main.js';
+import { db, auth } from '../main.js';
 
 export default () => {
   const views = `
@@ -57,13 +60,14 @@ export default () => {
     const name = divElement.querySelector('#name').value;
     const nickName = divElement.querySelector('#nickName').value;
     const city = divElement.querySelector('#city').value;
-    if (email.length == 0 || password.length == 0 || name.length == 0 || nickName.length==0 || city.length==0){
-      alert("Completa los campos vacios");
-    } else{
-      auth.createUserWithEmailAndPassword(email, password).then(credencial=>{
-        return db.collection('users').doc(credencial.user.uid).set({
-          email,name,nickName,city})
-      }).then(() => {      
+    // eslint-disable-next-line eqeqeq
+    if (email.length === 0 || password.length === 0 || name.length === 0
+      || nickName.length === 0 || city.length === 0) {
+      alert('Completa los campos vacios');
+    } else {
+      auth.createUserWithEmailAndPassword(email, password).then(credencial => db.collection('users').doc(credencial.user.uid).set({
+        email, name, nickName, city,
+      })).then(() => {
         checkEmail();
       });
     }

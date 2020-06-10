@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { logOut } from '../lib/fireBase.js';
 import { db } from '../main.js';
 
@@ -40,25 +41,25 @@ export default () => {
 </div>
 
 <!-- Fin -->
-	`;
-  const divElement = document.createElement("div");
+`;
+  const divElement = document.createElement('div');
   divElement.innerHTML = views;
 
-  const postList = divElement.querySelector("#contenidoPost");
+  const postList = divElement.querySelector('#contenidoPost');
 
   // Crea TODOS los elementos & muestra en pantalla
   const renderMusic = (doc) => {
-    let li = document.createElement("li");
-    let title = document.createElement("span");
-    let description = document.createElement("span");
-    let br = document.createElement("br");
-    let deleteX = document.createElement("div");
+    const li = document.createElement('li');
+    const title = document.createElement('span');
+    const description = document.createElement('span');
+    const br = document.createElement('br');
+    const deleteX = document.createElement('div');
 
-    li.setAttribute("data-id", doc.id);
-    deleteX.setAttribute("class", "cerrar");
+    li.setAttribute('data-id', doc.id);
+    deleteX.setAttribute('class', 'cerrar');
     title.textContent = doc.data().titulo;
     description.textContent = doc.data().descripcion;
-    deleteX.textContent = "x";
+    deleteX.textContent = 'x';
 
     li.appendChild(deleteX);
     li.appendChild(title);
@@ -68,10 +69,10 @@ export default () => {
     postList.appendChild(li);
 
     // Borrar publicacion por ID
-    deleteX.addEventListener("click", (e) => {
+    deleteX.addEventListener('click', (e) => {
       e.stopPropagation();
-      let id = e.target.parentElement.getAttribute("data-id");
-      db.collection("publicaciones").doc(id).delete();
+      const id = e.target.parentElement.getAttribute('data-id');
+      db.collection('publicaciones').doc(id).delete();
     });
   };
 
@@ -83,37 +84,37 @@ export default () => {
       });
     }); */
 
-    // tiempo Real
-db.collection('publicaciones').orderBy('titulo').onSnapshot(snapshot => {
-  let changes = snapshot.docChanges();
-  changes.forEach(change => {
+  // tiempo Real
+  db.collection('publicaciones').orderBy('titulo').onSnapshot((snapshot) => {
+    const changes = snapshot.docChanges();
+    changes.forEach((change) => {
       console.log(change.type);
-      if(change.type == 'added'){
-          renderMusic(change.doc);
-      } else if (change.type == 'removed'){
-          let li = postList.querySelector('[data-id=' + change.doc.id + ']');
-          postList.removeChild(li);
+      if (change.type === 'added') {
+        renderMusic(change.doc);
+      } else if (change.type === 'removed') {
+        const li = postList.querySelector(`[data-id=${change.doc.id}]`);
+        postList.removeChild(li);
       }
+    });
   });
-});
 
 
-  //Agregar Publicacion
-  const form = divElement.querySelector("#add-post-form");
-  form.addEventListener("submit", (e) => {
+  // Agregar Publicacion
+  const form = divElement.querySelector('#add-post-form');
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    db.collection("publicaciones").add({
+    db.collection('publicaciones').add({
       titulo: form.title.value,
       descripcion: form.description.value,
     });
-    form.title.value = "";
-    form.description.value = "";
-    alert("Su informacion ha sido guardada");
+    form.title.value = '';
+    form.description.value = '';
+    alert('Su informacion ha sido guardada');
   });
 
-  //Boton Cerrar Sesion
-  const btnLogOut = divElement.querySelector("#btnLogOut");
-  btnLogOut.addEventListener("click", () => {
+  // Boton Cerrar Sesion
+  const btnLogOut = divElement.querySelector('#btnLogOut');
+  btnLogOut.addEventListener('click', () => {
     logOut();
   });
   return divElement;
