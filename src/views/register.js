@@ -72,6 +72,7 @@ export default () => {
     // eslint-disable-next-line no-undef
     const validPassword = validatePassword(password, repitPassword);
     const validatePasswordCharactersp = validatePasswordCharacters(password);
+    const validateEmailp = validateEmail(email);
     // eslint-disable-next-line no-bitwise
     if (valid === false & validPassword === false) {
       alert('Completa los campos vacios y contraseña incorrecta');
@@ -83,8 +84,7 @@ export default () => {
       alert('Completa los campos');
     } else if (validatePasswordCharactersp === false) {
       alert('Contraseña debe tener minimo 6 caracteres');
-    } else if (email) {
-      validateEmail();
+    } else if (validateEmailp === false) {
       alert('Email incorrecto');
     } else {
       auth.createUserWithEmailAndPassword(email, password).then(credencial => db.collection('users').doc(credencial.user.uid).set({
