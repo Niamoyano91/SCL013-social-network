@@ -30,6 +30,7 @@ export const statusUser = () => {
       if (emailVerified === false) {
         console.log('Email no Verificado');
         txtVerificado = 'Email no verificado';
+        // eslint-disable-next-line no-alert
         alert('Debe verificar su correo antes de ingresar');
       } else {
         console.log('Email verificado');
