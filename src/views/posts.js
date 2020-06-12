@@ -22,9 +22,8 @@ export default () => {
 
 <div class="content">
             <form id="add-post-form">
-                <input type="text" name="title" placeholder="Ingresa Titulo">
-                <input type="text" name="description" placeholder="Ingresa Descripcion">
-                <button>Agregar Post</button>
+                <input type="text" id="post" name="description" placeholder="Ingresa Descripcion">
+                <button id="buttonPost">Agregar Post</button>
             </form>
 <div class='contenidoPost'>
     <ul id='contenidoPost'>
@@ -45,10 +44,51 @@ export default () => {
   const divElement = document.createElement('div');
   divElement.innerHTML = views;
 
+  // agregar publicaciones
+  const form = divElement.querySelector('#add-post-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('publicaciones').add({
+      // eslint-disable-next-line no-undef
+      descripcion: form.description.value,
+    });
+  });
+
+  // leer publicacioón
   const postList = divElement.querySelector('#contenidoPost');
+  db.collection('publicaciones').onSnapshot((querySnapshot) => {
+    postList.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      const uid = `${doc.id}`;
+      postList.innerHTML += `
+      <th>${doc.id}</th><button id="xDelete">X</button>
+      <p> ${doc.data().descripcion} </p>
+      `;
+      const buttonDelete = document.querySelector('#xDelete');
+      buttonDelete.addEventListener('click', () => {
+        // eslint-disable-next-line no-undef
+        deleteComent(uid);
+      });
+    });
+    // Elimina comentarios
+    const deleteComent = (id) => {
+      db.collection('publicaciones').doc(id).delete().then(function() {
+       console.log("dddddd")
+      }).catch(function(error){
+        console.error("errordff: ", error);
+      });
+
+    }
+  });
+
+
+
+
+ 
 
   // Crea TODOS los elementos & muestra en pantalla
-  const renderMusic = (doc) => {
+  /*const renderMusic = (doc) => {
     const li = document.createElement('li');
     const title = document.createElement('span');
     const description = document.createElement('span');
@@ -85,7 +125,7 @@ export default () => {
     }); */
 
   // tiempo Real
-  db.collection('publicaciones').orderBy('titulo').onSnapshot((snapshot) => {
+  /*db.collection('publicaciones').orderBy('titulo').onSnapshot((snapshot) => {
     const changes = snapshot.docChanges();
     changes.forEach((change) => {
       console.log(change.type);
@@ -96,11 +136,11 @@ export default () => {
         postList.removeChild(li);
       }
     });
-  });
+  });*/
 
 
   // Agregar Publicacion
-  const form = divElement.querySelector('#add-post-form');
+  /* const form = divElement.querySelector('#add-post-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('publicaciones').add({
@@ -110,7 +150,7 @@ export default () => {
     form.title.value = '';
     form.description.value = '';
     alert('Su informacion ha sido guardada');
-  });
+  });*/
 
   // Boton Cerrar Sesion
   const btnLogOut = divElement.querySelector('#btnLogOut');
