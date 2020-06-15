@@ -62,20 +62,23 @@ export default () => {
       console.log(`${doc.id} => ${doc.data()}`);
       const uid = `${doc.id}`;
       postList.innerHTML += `
-      <th>${doc.id}</th><button id="xDelete">X</button>
+      <th>${doc.id}</th>
+      <button id="xDelete">X</button>
       <p> ${doc.data().descripcion} </p>
       `;
       const buttonDelete = document.querySelector('#xDelete');
       buttonDelete.addEventListener('click', () => {
         // eslint-disable-next-line no-undef
+        // eslint-disable-next-line no-use-before-define
         deleteComent(uid);
       });
     });
     // Elimina comentarios
     const deleteComent = (id) => {
-      db.collection('publicaciones').doc(id).delete().then(function() {
-       console.log("dddddd")
-      }).catch(function(error){
+      db.collection('publicaciones').doc(id).delete().then(() => {
+        // eslint-disable-next-line no-console
+        console.log('Publicacion borrada');
+      }).catch(() => (error) => {
         console.error("errordff: ", error);
       });
 
@@ -111,7 +114,7 @@ export default () => {
     // Borrar publicacion por ID
     deleteX.addEventListener('click', (e) => {
       e.stopPropagation();
-      const id = e.target.parentElement.getAttribute('data-id');
+      const id = e.target.parentElement.getAttribute('data-id')sasasasasas;
       db.collection('publicaciones').doc(id).delete();
     });
   };
