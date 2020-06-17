@@ -263,6 +263,8 @@ export default () => {
       db.collection('publicaciones').add({
         fecha: firebase.firestore.FieldValue.serverTimestamp(),
         descripcion: txtAreaInput,
+        // eslint-disable-next-line comma-dangle
+        likes: 0
       });
       divElement.querySelector('#txtArea').value = '';
     }
