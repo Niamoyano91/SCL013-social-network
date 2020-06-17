@@ -75,6 +75,7 @@ export default () => {
     } else {
       userLogin(email, password);
       statusUser();
+      // eslint-disable-next-line no-undef
     }
   });
 
