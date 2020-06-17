@@ -1,4 +1,5 @@
-
+// eslint-disable-next-line import/no-cycle
+import { db, auth } from '../main.js';
 export default () => {
   const views = `<nav class="nav-flex">
   <a class="logo" id="home" href="#"><img id = "logo-oldbeat" src="img/logo.png" alt=""></a>
@@ -13,19 +14,20 @@ export default () => {
 
   </ul>
 </nav>
-  <!--contenido-->
+  <!--  -->
   
-  <div class="body-container">
+  <div class="body-container" id="body-container">
   <div class="bodyprofile">
 
       <div class="userinfo">
       <div class="profilepic">
           <img id="profilepicuser" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQBgMmLLeZGSPjovSqJha6gZ1ATXnl1KE9urg5dLsVuoUyH8JXc&usqp=CAU">
       </div>
-      <div class="textoprofile">
-          <p class="nickname">nickname</p>
-          <p class="fullname">Nombre Completo</p>
-          <p class="age">n años</p>
+      <div class="textoprofile" id='textoprofile'>
+          <p class="nickname" id='nickname'> </p>
+          <p class="fullname" id='name'></p>
+          <p class="age" id='age'></p>
+          <p class="age" id='city'></p>
           <svg class="iconoubicacion"><use xlink:href="#icon-map-marker"></use>
           <symbol id="icon-map-marker" viewBox="0 0 16 28">
           <path d="M12 10c0-2.203-1.797-4-4-4s-4 1.797-4 4 1.797 4 4 4 4-1.797 4-4zM16 10c0 0.953-0.109 1.937-0.516 2.797l-5.688 12.094c-0.328 0.688-1.047 1.109-1.797 1.109s-1.469-0.422-1.781-1.109l-5.703-12.094c-0.406-0.859-0.516-1.844-0.516-2.797 0-4.422 3.578-8 8-8s8 3.578 8 8z"></path>
@@ -40,7 +42,7 @@ export default () => {
           <div class="secondpost" id="minipost"></div>
       </div>
 
-  <!--control-->
+  <!--  -->
   <div class="control">
 
       <a href="#/userPost" id="home">
@@ -87,5 +89,20 @@ export default () => {
 </div>`;
   const divElement = document.createElement('div');
   divElement.innerHTML = views;
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid);
+      db.collection('users').doc(uid).get().then((doc) => {
+        // eslint-disable-next-line no-console
+        console.log('Document data:', doc.data().name);
+        document.getElementById('nickname').innerHTML = `${doc.data().nickName}`;
+        document.getElementById('name').innerHTML = `${doc.data().name}`;
+        /*document.getElementById('age').innerHTML = `${doc.data().age}`;*/
+        document.getElementById('city').innerHTML = `${doc.data().city}`;
+      });
+    }
+  });
   return divElement;
 };
+
