@@ -92,6 +92,7 @@ export default () => {
       })).then(() => {
         checkEmail();
       });
+      // eslint-disable-next-line no-console
       console.log(email, password);
       statusUser();
       location.hash = '#/home';
