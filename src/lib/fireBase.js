@@ -26,16 +26,14 @@ export const statusUser = () => {
       // const uid = user.uid;
       // const providerData = user.providerData;
       // const name = user.name;
-      const txtVerificado = '';
       if (emailVerified === false) {
         console.log('Email no Verificado');
-        txtVerificado = 'Email no verificado';
         // eslint-disable-next-line no-alert
         alert('Debe verificar su correo antes de ingresar');
       } else {
         console.log('Email verificado');
         location.hash = '#/userPost';
-        txtVerificado = 'Email verificado';
+        const txtVerificado = 'Email verificado';
         console.log(`Usuario Logueado ${email}, ${txtVerificado}`);
       }
     } else {

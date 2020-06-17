@@ -146,12 +146,12 @@ export default () => {
     description.textContent = doc.data().descripcion;
     description.setAttribute('id', 'description');
     deleteX.textContent = 'x';
-    edit.setAttribute('id', 'btnEdit');
+    edit.setAttribute('id', `btnedit${doc.id}`);
     edit.setAttribute('class', 'btnEdit');
     edit.textContent = 'Editar';
-    likeBtn.setAttribute('id', 'likeButton');
+    likeBtn.setAttribute('id', `likeButton${doc.id}`);
     likeBtn.innerHTML = 'Me gusta';
-    dislikeBtn.setAttribute('id', 'dislikeButton');
+    dislikeBtn.setAttribute('id', `dislikeButton${doc.id}`);
     dislikeBtn.innerHTML = 'No me gusta';
     likeCounter.textContent = `${doc.data().likes} likes`;
 
@@ -170,7 +170,6 @@ export default () => {
       db.collection('publicaciones').doc(id).delete();
       alert('Documento Eliminado');
     });
-    
     // Dar like y quitar like
     likeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -178,19 +177,22 @@ export default () => {
       const id = e.target.parentElement.getAttribute('data-id');
       const postRef = db.collection('publicaciones').doc(id);
       postRef.update({ likes: increment });
-      document.getElementById('likeButton').disabled = true;
-      document.getElementById('dislikeButton').disabled = false;
+      document.getElementById(`likeButton${doc.id}`).disabled = true;
+      document.getElementById(`dislikeButton${doc.id}`).disabled = false;
     });
     dislikeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const decrement = firebase.firestore.FieldValue.increment(-1);
+      document.getElementById(`dislikeButton${doc.id}`).disabled = true;
       const id = e.target.parentElement.getAttribute('data-id');
       const postRef = db.collection('publicaciones').doc(id);
-      postRef.update({ likes: decrement });
-      document.getElementById('likeButton').disabled = false;
-      document.getElementById('dislikeButton').disabled = true;
+      postRef.get().then((doc) => {
+        const decrement = doc.data().likes > 0 ? firebase.firestore.FieldValue.increment(-1) : 0;
+        postRef.update({ likes: decrement });
+        document.getElementById(`likeButton${doc.id}`).disabled = false;
+      }).catch((error) => {
+        console.error(error);
+      });
     });
-
     // boton para iniciar evento Editar Documento
     edit.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -198,7 +200,7 @@ export default () => {
       const descrip = doc.data().descripcion;
       document.getElementById('txtArea').value = descrip;
       const botonEdit = document.querySelector('#btnEditContent');
-      botonEdit.addEventListener('click', () => {
+      const editar = () => {
         const descrip = document.getElementById('txtArea').value;
         activa();
         const ref = db.collection('publicaciones').doc(id);
@@ -207,9 +209,11 @@ export default () => {
         })
           .then(() => {
             document.querySelector('#txtArea').value = '';
+            botonEdit.removeEventListener('click', editar);
             alert('Documento Actualizado');
           });
-      });
+      };
+      botonEdit.addEventListener('click', editar);
       desactiva();
     });
     // Desactiva y Activa Boton Publicar
