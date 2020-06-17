@@ -13,7 +13,7 @@ export default () => {
 
   </ul>
 </nav>
-  <!--  -->
+  <!--contenido-->
   
   <div class="body-container">
   <div class="bodyprofile">
@@ -40,7 +40,7 @@ export default () => {
           <div class="secondpost" id="minipost"></div>
       </div>
 
-  <!--  -->
+  <!--control-->
   <div class="control">
 
       <a href="#/userPost" id="home">

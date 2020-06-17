@@ -1,6 +1,7 @@
 
 import {
-  validateInput, validateRegister, validatePassword, validateEmail, validatePasswordCharacters,
+  // eslint-disable-next-line max-len
+  validateInput, validateRegister, validatePassword, validateEmail, validatePasswordCharacters, validateTxtPostArea,
 } from '../src/lib/validate.js';
 
 describe('validateInput', () => {
@@ -60,5 +61,18 @@ describe('validatePasswordCharacters', () => {
   });
   test('Deberia retornar true para password de 6 o mas caracteres', () => {
     expect(validatePasswordCharacters('Ingresar9999')).toBe(true);
+  });
+});
+
+
+describe('validateTxtPostArea', () => {
+  test('debería ser una función', () => {
+    expect(typeof validateTxtPostArea).toBe('function');
+  });
+  test('Deberia retornar false para password menor a 6 caracteres', () => {
+    expect(validateTxtPostArea('')).toBe(false);
+  });
+  test('Deberia retornar true para password de 6 o mas caracteres', () => {
+    expect(validateTxtPostArea('Nuevo Post')).toBe(true);
   });
 });

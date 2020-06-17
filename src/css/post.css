@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap");
-@-ms-viewport {   
+@-ms-viewport {
   width: device-width;
 }
-
 html {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
@@ -28,35 +27,30 @@ html {
 body {
   background-color: #0b081b;
 }
-.bodyUser {
+
+.home-contentPostUser {
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 45vh;
-  margin-left: 4em;
-  margin-right: 4em;
-  margin-top: 10vh;
-  border-radius: 15px;
-  font-weight: 300;
+  justify-content: flex-start;
+  overflow: visible;
+  height: 78vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
 }
-.email,
-.password {
-  width: 250px;
-  height: 30px;
-  border-radius: 10px;
-  background-color: #130e2f;
-  border: 0;
-  padding: 5px 0px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-family: "RubikFina", Arial, Helvetica, sans-serif;
-}
-.email:focus,
-.password:focus {
-  border: 1px solid rgb(114, 109, 109);
-  outline: none;
-  text-align: center;
-}
+
 ::placeholder {
   text-align: justify;
   font-size: 15px;
@@ -184,96 +178,39 @@ body {
   color: #fff;
 }
 
-#logoGoogle{
+#logoGoogle {
   width: 150px;
   border-color: white;
 }
 
+.control {
+  position: fixed;
+  width: 100vw;
+  overflow: visible;
+  float: none;
+  clear: none;
+  background-color: #201b39;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 12vh;
+}
 
 /*Desktop*/
 @media (min-width: 1090px) {
-  
-    html {
-    background: rgb(70, 30, 65);
-    background: linear-gradient(
-      0deg,
-      rgba(70, 30, 65, 1) 0%,
-      rgba(101, 29, 149, 1) 100%
-    );
-  }
 
-  .container {
-    background: rgb(70, 30, 65);
-    background: linear-gradient(
-      0deg,
-      rgba(70, 30, 65, 1) 0%,
-      rgba(101, 29, 149, 1) 100%
-    );
-  }
-
-  .bodyBox {
+  .home-bodyPost {
+    overflow: visible;
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
+    height: 100vh;
     background-color: #0b081b;
-    border-radius: 20px;
+  }
+
+  .nav-flex {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 70vh;
-    margin: 70px;
-    padding: 20px;
-    flex-direction: row;
-  }
-
-  #logoPrincipal {
-    display: flex;
-    width: 350px;
-    background-color: #0b081b;
-    order: 2;
-    padding: 20px;
-  }
-
-  .bodyUserRegistrar {
-    align-self: flex-start;
-    margin-left: -210px;
-    margin-top: -20px;
-    margin-right: -130px;
-    order: 1;
-  }
-
-  .userlogin {
-    padding-left: 0px;
-    order: 2;
-  }
-
-  .footer {
-    position: fixed;
-    background-color: none;
-    margin-left: -150px;
-    margin-top: 130px;
-    order: 2;
-  }
-
-.contenidoPost {
-    height: 80vh;
-    margin: 80px;
-}
-  .contenidoPost li{
-color: azure;
-font-family: "Rubik", Arial, Helvetica, sans-serif;
-list-style: none;
-padding: 20px;
-border: 1px solid rgb(114, 109, 109);
-margin-top: 30px;
-display: grid;
-  }
-
-.nav-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgb(101, 29, 149);
-  background: linear-gradient(90deg,
-    rgba(101, 29, 149, 1) 0%,
-    rgba(70, 30, 65, 1) 100%);
+    background: #2d216e;
   }
   .navigation {
     display: flex;
@@ -281,17 +218,14 @@ display: grid;
     padding-right: 3em;
     padding-left: 1em;
   }
-
-.imgPerfil{
-    border-radius: 20px;  
+  .imgPerfil {
+    border-radius: 20px;
     width: 40px;
     height: 40px;
   }
-
   .logo,
   .navigation a {
     text-decoration: none;
-    
   }
   .navigation a {
     display: block;
@@ -299,7 +233,11 @@ display: grid;
     color: white;
   }
   .navigation a:hover {
-    background: #2f80ed;
+    background: #e9329d;
+    border-radius: 15px;
+  }
+  ul .navigation {
+    display: flex;
   }
   input .search {
     height: 20px;
@@ -317,82 +255,222 @@ display: grid;
     display: block;
     padding: 1em;
   }
- 
-}
- 
-  /*Desktop*/
-@media (min-width: 1090px) {
-    
-    html {
-    background: rgb(70, 30, 65);
-    background: linear-gradient(
-        0deg,
-        rgba(70, 30, 65, 1) 0%,
-        rgba(101, 29, 149, 1) 100%
-      );
-    }
-    li div.cerrar{
-      margin-left: auto;
-      top: 0;
-      right: 0px;
-      background: rgba(255,255,255,0.6);
-      width: 30px;
-      text-align: center;
-      padding: 10px 0;
-      font-weight:  bold;
-      cursor:  pointer;
+  li div.cerrar {
+    margin-left: auto;
+    top: 0;
+    right: 0px;
+    background: rgba(255, 255, 255, 0.6);
+    width: 30px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
   }
-    .content {
-     background-color: #0b081b;
-    }
-  
-    .bodyBox {
-      background-color: #0b081b;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 70vh;
-      margin: 70px;
-      padding: 20px;
-      flex-direction: row;
-    }
-  
-    #logoPrincipal {
-      display: flex;
-      width: 350px;
-      background-color: #0b081b;
-      order: 2;
-      padding: 20px;
-    }
-  
-    .bodyUserRegistrar {
-      align-self: flex-start;
-      margin-left: -210px;
-      margin-top: -20px;
-      margin-right: -130px;
-      order: 1;
-    }
-    .bodyUserWithAcount{
-        align-self: flex-start;
-        margin-left: -300px;
-        margin-top: 10px;
-        margin-right: -130px;
-        order: 1;
-        padding-right: 20px;
-    }
+
+  .userlogin {
+    padding-left: 0px;
+    order: 2;
+  }
+
+  /*Contenedor Principal*/
+  .perfilUserAndPostsUser {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #0b081b;
+  }
+
+  /* Seccion Derecha*/
+  .postUser {
+    width: 80vw;
+    padding: 15px;
+  }
+
+  /*Caja del Formulario*/
+  /* #add-post-form {
+    display: flex;
+    background: #fff;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 10px;
     
-      .userlogin {
-      padding-left: 0px;
-      order: 2;
-    }
+  }
+  input.inputFormDescription{
+    margin-right: 50px;
+    width: 90%;
+    height: 35px;
+    border-radius: 6px;
+    background: #f0f0f0;
+    border: 1px solid #fff;
+  }
+  input.inputFormDescription:focus{
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  } */
+
+  /*Campo Texto para Publicar*/
+  textarea {
+    border: 10px;
+    width: 50%;
+    height: 25px;
+    margin: 20px 10px 20px 10px;
+    background: rgb(240, 238, 238);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    resize: none;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  /*Evento que Pinta el borde al dar click*/
+  textarea:focus {
+    /* outline:none !important; */
+    outline-width: 1 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    outline-color: rgb(255, 146, 206) !important;
+    border-radius: 5px;
+  }
+  /*Texto Referencial  del Input*/
+  textarea::placeholder {
+    margin-left: 20px;
+    color: rgb(201, 201, 238);
+    font-size: 1em;
+    text-align: start;
+  }
+  /*Imagen del Usuario activo en la caja de post*/
+
+  .divImgPerfilUser {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+  .divImgPerfilUser > .imgPerfilUser {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  .divImgPerfilPostUser {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+  }
+  .divImgPerfilPostUser > .imgPerfilPostUser {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  /*contenedor del post*/
+  .mainContentPost {
+    display: flex;
+    justify-content: center;
+  }
+  /*lado izquierdo del post*/
+  .leftContent {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px 0px 0px 15px;
+    width: 5%;
+  }
+  /*lado derecho del post*/
+  .rightContent {
+    background-color: #fff;
+    width: 70%;
+    border-radius: 15px;
+  }
+  /*contenido superior del lado derecho del post*/
+  .upContent {
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    justify-items: center;
+  }
+  /*input publicar*/
+  #txtArea {
+    width: 100%;
+  }
+  /*contenido inferior del lado derecho del post*/
+  .downContent {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  /*contenido Up y Down del contenedor derecho*/
+  .publishPost {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: auto;
+  }
+  /*boton publicar*/
+  .btnSendContent {
+    width: 100px;
+    height: 30px;
+  }
+
+  /*Caja de los Post*/
+  .contentPost {
+    margin: 30px;
+    width: 800px;
+  }
+
+  .contentPost li {
+    color: #000;
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
+    list-style: none;
+    padding: 20px;
+    border: 1px solid rgb(114, 109, 109);
+    margin: 10px 0px;
+    display: grid;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 15px;
+  }
+
+  #likeButton {	
+    background-color: #637081;
+		background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
+    color: white;
+    border: none;
+	  height: 30px;
+	  width: 100px;
+	  border-radius: 10px;
+	  margin: 5px;
+	  font-size: 14px;
+	  cursor: pointer;
+  }
   
-    .footer {
-      position: fixed;
-      background-color: none;
-      margin-left: -150px;
-      margin-top: 130px;
-      order: 2;
-    }
-    
+  #dislikeButton {
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    border: none;
+	  height: 30px;
+	  width: 100px;
+	  border-radius: 10px;
+	  margin: 5px;
+	  font-size: 14px;
+	  cursor: pointer;
+  }
+
+  #likeButton:hover, #dislikeButton:hover {
+    filter: hue-rotate(40deg);
+    transform: scale(1.1);
+  }
+  
+  #likeButton:focus, #dislikeButton:focus {
+    outline: none;
+    color: white;
+    background-color: #f5d020!important;
+    background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%)!important;
+  }
+  
+  #likeButton:focus:hover, #dislikeButton:focus:hover  {
+    filter: hue-rotate(0deg);
+  }
 }

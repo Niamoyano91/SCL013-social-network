@@ -50,4 +50,7 @@ Prototipo Desktop Figma (https://www.figma.com/file/0YXJVk1YoTndld263N9Keq/Socia
 ![screen1](src/img/prototipodesktop.png)
 
 ## 5. Test de usuarios
+![test1](src/img/testmaze01.png)
+![test2](src/img/testmaze02.png)
+![test3](src/img/testmaze03.png)
 ## 6. Test unitarios

@@ -37,3 +37,11 @@ export const validatePasswordCharacters = (password) => {
   }
   return true;
 };
+
+// validar Campo Vacio del txtarea
+export const validateTxtPostArea = (txt) => {
+  if (txt.length === 0) {
+    return false;
+  }
+  return true;
+};
