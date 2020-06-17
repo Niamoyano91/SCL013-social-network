@@ -87,10 +87,18 @@ export default () => {
     } else if (validateEmailp === false) {
       alert('Email incorrecto');
     } else {
-      auth.createUserWithEmailAndPassword(email, password).then(credencial => db.collection('users').doc(credencial.user.uid).set({
-        email, name, nickName, city,
-      })).then(() => {
+      auth.createUserWithEmailAndPassword(email, password).then((credencial) => {
+        console.log('1', nickName);
+        credencial.user.updateProfile({
+          displayName: nickName,
+        });
+        db.collection('users').doc(credencial.user.uid).set({
+          email, name, nickName, city,
+        });
+      }).then(() => {
         checkEmail();
+        console.log('2', nickName);
+        console.log('3', email);
       });
       // eslint-disable-next-line no-console
       console.log(email, password);

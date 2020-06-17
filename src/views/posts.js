@@ -13,7 +13,7 @@
 /* eslint-disable no-console */
 import { logOut, statusUser } from '../lib/fireBase.js';
 // eslint-disable-next-line import/no-cycle
-import { db } from '../main.js';
+import { db, auth } from '../main.js';
 import { validateTxtPostArea } from '../lib/validate.js';
 
 export default () => {
@@ -132,6 +132,7 @@ export default () => {
   // Crea TODOS los elementos & muestra en pantalla
   const renderMusic = (doc) => {
     const li = document.createElement('li');
+    const nameAuthor = document.createElement('p');
     const description = document.createElement('span');
     const deleteX = document.createElement('div');
     const edit = document.createElement('button');
@@ -143,6 +144,7 @@ export default () => {
     li.setAttribute('data-id', doc.id);
     li.setAttribute('class', 'postContentLi');
     deleteX.setAttribute('class', 'cerrar');
+    nameAuthor.textContent = doc.data().author;
     description.textContent = doc.data().descripcion;
     description.setAttribute('id', 'description');
     deleteX.textContent = 'x';
@@ -156,6 +158,7 @@ export default () => {
     likeCounter.textContent = `${doc.data().likes} likes`;
 
     li.appendChild(description);
+    li.appendChild(nameAuthor);
     li.appendChild(deleteX);
     li.appendChild(edit);
     li.appendChild(likeBtn);
@@ -198,6 +201,8 @@ export default () => {
       e.stopPropagation();
       const id = doc.id;
       const descrip = doc.data().descripcion;
+      const author = doc.data().author;
+      console.log(author);
       document.getElementById('txtArea').value = descrip;
       const botonEdit = document.querySelector('#btnEditContent');
       const editar = () => {
@@ -261,6 +266,7 @@ export default () => {
       alert('Debe escribir antes de Publicar');
     } else {
       db.collection('publicaciones').add({
+        author: auth.currentUser.displayName,
         fecha: firebase.firestore.FieldValue.serverTimestamp(),
         descripcion: txtAreaInput,
         // eslint-disable-next-line comma-dangle
