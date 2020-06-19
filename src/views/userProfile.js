@@ -8,7 +8,7 @@ export default () => {
   </ul>
   <ul class="navigation">
       <li>
-          <div><a href="#/userProfile"><img class='imgPerfil' src="img/perfilUsuario.jpg"></a></div>
+          <div><a href="#/userProfile"><img class='imgPerfilUser' src="img/perfilUsuario.jpg"></a></div>
       </li>
       <li><a id="btnLogOut" href="#/home">Cerrar Sesion</a></li>
 

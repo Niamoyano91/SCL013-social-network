@@ -13,67 +13,54 @@
 /* eslint-disable no-console */
 import { logOut, statusUser } from '../lib/fireBase.js';
 // eslint-disable-next-line import/no-cycle
-import { db, auth } from '../main.js';
+import { auth, db } from '../main.js';
 import { validateTxtPostArea } from '../lib/validate.js';
 
 export default () => {
-  const views = /*html*/ `
+  const views = `
   <!-- Menu superior -->
   <nav class="nav-flex">
     <a class="logo" id="home" href="#"><img id = "logo-oldbeat" src="img/logo.png" alt=""></a>
     <ul>
         <input id="searchinput" placeholder="Buscar">
-    </ul>
-    <ul class="navigation">
+        <ul class='navigation'>
         <li>
-            <div><a href="#/userProfile"><img class='imgPerfil' src="img/perfilUsuario.jpg"></a></div>
+            <div class='divImgPerfilUser'>
+            <img class='imgPerfil'>
+            </div>
         </li>
-        <li><a id="btnLogOut" href="#/home">Cerrar Sesión</a></li>
+        <li><a id='btnLogOut' href='#/home'>Cerrar Sesion</a></li>
   
     </ul>
   </nav>
   <!-- Contenido del sitio -->
-  <div class='home-contentPostUser'>
-    <div class='perfilUserAndPostsUser'>
-        <section class='postUser'>
-            <!-- contenedor para los posts -->
-            <section class='mainContentPost'>
-                <!-- caja que contiene los elementos de la izquierda -->
-                <section class='leftContent'>
-                    <div class='divImgPerfilPostUser'>
-                    <img class='imgPerfilPostUser'>
-                    </div>
-                </section>
-                <!-- caja que contiene los elementos de la derecha -->
-                <section class='rightContent'>
-                    <!-- contiene el texto y boton de publicar -->
-                    <form class='publishPost'>
-                        <section class='upContent'>
-                            <textarea id='txtArea' name='txtArea' maxlength='300' 
-                            data-resizable='true' placeholder='¿Qué estás pensando?'></textarea>
-                        </section>
-                        <section class='downContent'>
-                            <div class='iconContent'>
-                                <span>Upload</span>
-                            </div>
-                            <div>
-                                <button id='btnSendContent' name='btnSend' class='btnSendContent'>Publicar</button>
-                            </div>
-                        </section>
-                    </form>
-                </section>
-                <div>
-                <button style="visibility:hidden" id='btnEditContent' name='btnEdit' class='btnEditContent'>Editar</button>
-                </div>
-            </section>
-            <div class='contentPost'>
-                <ul id='contentPost'>
-                
-                </ul>
-            </div>
-        </section>
-    </div>
-</div>
+  <section class='home-timeline'>
+          <section class='home-publisharea'>
+          <div class='divImgPerfilPostUser'>
+                        <img class='imgPerfilPostUser'>
+                        </div>
+              <!-- contiene el texto y boton de publicar -->
+              <form class='home-publishPost'>
+                  <section class='upContent'>
+                      <textarea id='txtArea' name='txtArea' maxlength='300' 
+                      data-resizable='true' placeholder='¿Qué estás pensando?'></textarea>
+                  </section>
+                  <section class='downContent'>
+                      <div class='iconContent'>
+                          <span>Upload</span>
+                      </div>
+                          <button id='btnSendContent' name='btnSend' class='btnSendContent'>Publicar</button>
+                  </section>
+              </form>
+          </section>
+          <!-- botón editar dinamico -->
+          <div>
+          <button style="visibility:hidden" id='btnEditContent' name='btnEdit' class='btnEditContent'>Editar</button>
+          </div>
+          <!-- feed con posts -->
+      <div class='contentPost'>
+          <ul id='contentPost'></ul>
+  </section>
 <!--control-->
 <div class="control">
   
@@ -132,19 +119,20 @@ export default () => {
   // Crea TODOS los elementos & muestra en pantalla
   const renderMusic = (doc) => {
     const li = document.createElement('li');
-    const nameAuthor = document.createElement('p');
     const description = document.createElement('span');
+    const nameAuthor = document.createElement('p');
     const deleteX = document.createElement('div');
     const edit = document.createElement('button');
-    const likeBtn = document.createElement('button');
-    const dislikeBtn = document.createElement('button');
+    const likeBtn = document.createElement('i');
+    // const dislikeBtn = document.createElement('button');
     const likeCounter = document.createElement('p');
 
 
     li.setAttribute('data-id', doc.id);
     li.setAttribute('class', 'postContentLi');
-    deleteX.setAttribute('class', 'cerrar');
+    li.appendChild(nameAuthor);
     nameAuthor.textContent = doc.data().author;
+    deleteX.setAttribute('class', 'cerrar');
     description.textContent = doc.data().descripcion;
     description.setAttribute('id', 'description');
     deleteX.textContent = 'x';
@@ -152,18 +140,18 @@ export default () => {
     edit.setAttribute('class', 'btnEdit');
     edit.textContent = 'Editar';
     likeBtn.setAttribute('id', `likeButton${doc.id}`);
-    likeBtn.innerHTML = 'Me gusta';
-    dislikeBtn.setAttribute('id', `dislikeButton${doc.id}`);
-    dislikeBtn.innerHTML = 'No me gusta';
+    likeBtn.setAttribute('class', 'fa fa-thumbs-up');
+    // likeBtn.innerHTML = 'Me gusta';
+    // dislikeBtn.setAttribute('id', `dislikeButton${doc.id}`);
+    // dislikeBtn.innerHTML = 'No me gusta';
     likeCounter.textContent = `${doc.data().likes} likes`;
 
     li.appendChild(description);
-    li.appendChild(nameAuthor);
     li.appendChild(deleteX);
     li.appendChild(edit);
     li.appendChild(likeBtn);
     li.appendChild(likeCounter);
-    li.appendChild(dislikeBtn);
+    // li.appendChild(dislikeBtn);
     postList.appendChild(li);
 
     // Borrar publicacion por ID
@@ -180,29 +168,29 @@ export default () => {
       const id = e.target.parentElement.getAttribute('data-id');
       const postRef = db.collection('publicaciones').doc(id);
       postRef.update({ likes: increment });
-      document.getElementById(`likeButton${doc.id}`).disabled = true;
-      document.getElementById(`dislikeButton${doc.id}`).disabled = false;
+      likeBtn.classList.toggle('fa-thumbs-down');
+
+      // document.getElementById(`likeButton${doc.id}`).disabled = true;
+      // document.getElementById(`dislikeButton${doc.id}`).disabled = false;
     });
-    dislikeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.getElementById(`dislikeButton${doc.id}`).disabled = true;
-      const id = e.target.parentElement.getAttribute('data-id');
-      const postRef = db.collection('publicaciones').doc(id);
-      postRef.get().then((doc) => {
-        const decrement = doc.data().likes > 0 ? firebase.firestore.FieldValue.increment(-1) : 0;
-        postRef.update({ likes: decrement });
-        document.getElementById(`likeButton${doc.id}`).disabled = false;
-      }).catch((error) => {
-        console.error(error);
-      });
-    });
+    // dislikeBtn.addEventListener('click', (e) => {
+    //   e.stopPropagation();
+    //   document.getElementById(`dislikeButton${doc.id}`).disabled = true;
+    //   const id = e.target.parentElement.getAttribute('data-id');
+    //   const postRef = db.collection('publicaciones').doc(id);
+    //   postRef.get().then((doc) => {
+    //     const decrement = doc.data().likes > 0 ? firebase.firestore.FieldValue.increment(-1) : 0;
+    //     postRef.update({ likes: decrement });
+    //     document.getElementById(`likeButton${doc.id}`).disabled = false;
+    //   }).catch((error) => {
+    //     console.error(error);
+    //   });
+    // });
     // boton para iniciar evento Editar Documento
     edit.addEventListener('click', (e) => {
       e.stopPropagation();
       const id = doc.id;
       const descrip = doc.data().descripcion;
-      const author = doc.data().author;
-      console.log(author);
       document.getElementById('txtArea').value = descrip;
       const botonEdit = document.querySelector('#btnEditContent');
       const editar = () => {
@@ -257,7 +245,7 @@ export default () => {
     });
 
   // Agregar Publicacion
-  const form = divElement.querySelector('.publishPost');
+  const form = divElement.querySelector('.home-publishPost');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const txtAreaInput = divElement.querySelector('#txtArea').value;

@@ -196,6 +196,16 @@ body {
   height: 12vh;
 }
 
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+
 /*Desktop*/
 @media (min-width: 1090px) {
 
