@@ -12,14 +12,12 @@ export default () => {
           <div><a href="#/userProfile"><img class='imgPerfilUser' src="img/perfilUsuario.jpg"></a></div>
       </li>
       <li><a id="btnLogOut" href="#/home">Cerrar Sesion</a></li>
-
   </ul>
 </nav>
   <!--  -->
   
   <div class="body-container" id="body-container">
   <div class="bodyprofile">
-
       <div class="userinfo">
       <div class="profilepic">
           <img id="profilepicuser" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQBgMmLLeZGSPjovSqJha6gZ1ATXnl1KE9urg5dLsVuoUyH8JXc&usqp=CAU">
@@ -36,16 +34,13 @@ export default () => {
           </div>
       </div>
   </div>
-
   <div class="posthistory">
           <h1 class="myposts">mis publicaciones</h1>
           <div class="firstpost" id="minipost"></div>
           <div class="secondpost" id="minipost"></div>
       </div>
-
   <!--  -->
   <div class="control">
-
       <a href="#/userPost" id="home">
       <svg class="icon icon-home"><use xlink:href="#icon-home"></use>
       <symbol id="icon-home" viewBox="0 0 26 28">
@@ -53,7 +48,6 @@ export default () => {
           </symbol>                
       </svg>
       </a>
-
       <a href="#/" id="events">
           <svg class="icon icon-calendar"><use xlink:href="#icon-calendar"></use>
       <symbol id="icon-calendar" viewBox="0 0 26 28">
@@ -61,7 +55,6 @@ export default () => {
           </symbol>
       </svg>
       </a>
-
       <a href="#/" id="newpost">
       <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use>
       <symbol id="icon-plus" viewBox="0 0 22 28">
@@ -69,7 +62,6 @@ export default () => {
           </symbol>
       </svg>
       </a>
-
       <a href="#/" id="search">
       <svg class="icon icon-search"><use xlink:href="#icon-search"></use>
       <symbol id="icon-search" viewBox="0 0 26 28">
@@ -77,7 +69,6 @@ export default () => {
           </symbol>
       </svg>
       </a>
-
       <a href="#/userProfile" id="profile">
       <svg class="icon icon-user"><use xlink:href="#icon-user"></use>
       <symbol id="icon-user" viewBox="0 0 20 28">

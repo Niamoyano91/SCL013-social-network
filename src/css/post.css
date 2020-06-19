@@ -6,49 +6,37 @@ html {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 /*Phone*/
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: 0px;
-}
-.headerPrincipal {
+.nav-flex {
   background-color: #201b39;
   display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   align-items: center;
   justify-content: center;
-  height: 13vh;
+  height: 11vh;
 }
-
-#logoPrincipal {
+#searchinput,
+.navigation {
+  display: none;
+}
+#logo-oldbeat {
   width: 200px;
   padding-top: 30px;
 }
-
-body {
-  background-color: #0b081b;
-}
-
-.home-contentPostUser {
-  position: static;
+.home-timeline {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: visible;
+  width: 100vw;
   height: 78vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
+  flex-direction: column;
+  overflow: auto;
+  background-color: #0b081b;
 }
 
 ::placeholder {
@@ -56,133 +44,75 @@ body {
   font-size: 15px;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
-
-.btnLogin:hover {
-  border-radius: 5px;
-  background: #e54ebc;
-  box-shadow: 0 0 10px #e54ebc, 0 0 30px #e54ebc, 0 0 60px #e54ebc;
-  transition-delay: 1s;
-}
-.btnLogin span {
-  position: absolute;
-  display: block;
-}
-#passRecover {
-  padding-left: 92px;
-  color: #a1a1a1;
-  font-size: 9pt;
-}
-
-#span1 {
-  top: 0px;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #fd99e3);
-}
-.btnLogin:hover #span1 {
-  left: 100%;
-  transition: 1s;
-}
-#span3 {
-  bottom: 0px;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #fd99e3);
-}
-.btnLogin:hover #span3 {
-  right: 100%;
-  transition: 1s;
-  transition-delay: 0.5s;
-}
-#span2 {
-  top: -100px;
-  right: 0%;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(180deg, transparent, #fd99e3);
-}
-.btnLogin:hover #span2 {
-  top: 100%;
-  transition: 1s;
-  transition-delay: 0.25s;
-}
-#span4 {
-  bottom: -100px;
-  left: 0%;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(360deg, transparent, #fd99e3);
-}
-.btnLogin:hover #span4 {
-  bottom: 100%;
-  transition: 1s;
-  transition-delay: 0.75s;
-}
-.bodyUserGoogle,
-.bodyUserRegistrar,
-.bodyUserLogin,
-.bodyUserWithAcount {
-  background-color: #0b081b;
+.home-publisharea {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 10vh;
+}
+
+#btnEditContent,
+#btnSendContent {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #646464;
+}
+.divImgPerfilPostUser {
+  display: none;
+}
+.upContent {
+  margin-top: 0.8rem;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-items: center;
+  width: 86vw;
+  height: 52px;
+  border-radius: 10px;
+}
+#txtArea {
+  width: 80vw;
+  margin-left: 12px;
+  border: none;
+  border-color: transparent;
+  overflow: auto;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-size: 15px;
 }
-.bodyUser a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
+ul#contentPost {
+  justify-content: space-between;
+  margin: -10px 0 0 22px;
 }
-
-#bodyUserRegistrar {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-#register {
-  padding-left: 5px;
-  color: #e54ebc;
-  text-decoration: none;
-  font-size: 14px;
-}
-.footer {
-  background-color: #0b081b;
-  color: #fff;
+.contentPost {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
 }
-.userlogin {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+.postContentLi {
+  background-color: #fff;
+  border-radius: 7px;
+  display: inline-block;
+  justify-content: space-around;
+  width: 80vw;
+  height: auto;
+  margin: 10px 0;
+  font-size: 16px;
+  /* min-height: 20vh; */
+  overflow: auto;
+  padding: 1rem;
 }
-
-.container {
-  height: 89vh;
+.author-name {
+  color: #201b39;
+  font-weight: 500;
+  font-size: 17px;
 }
-
-.bodyNotFound {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 75vh;
-  color: #fff;
+span#description {
+  color: #0b081b;
 }
-
-#logoGoogle {
-  width: 150px;
-  border-color: white;
-}
-
 .control {
   position: fixed;
   width: 100vw;
@@ -194,6 +124,15 @@ body {
   align-items: center;
   justify-content: space-around;
   height: 12vh;
+}
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
 }
 
 .fa {
@@ -208,7 +147,6 @@ body {
 
 /*Desktop*/
 @media (min-width: 1090px) {
-
   .home-bodyPost {
     overflow: visible;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
@@ -220,7 +158,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #2d216e;
+    background: rgb(101, 29, 149);
+    background: linear-gradient(
+      90deg,
+      rgba(101, 29, 149, 1) 0%,
+      rgba(70, 30, 65, 1) 100%
+    );
   }
   .navigation {
     display: flex;
@@ -276,12 +219,6 @@ body {
     font-weight: bold;
     cursor: pointer;
   }
-
-  .userlogin {
-    padding-left: 0px;
-    order: 2;
-  }
-
   /*Contenedor Principal*/
   .perfilUserAndPostsUser {
     display: flex;
@@ -324,7 +261,8 @@ body {
   } */
 
   /*Campo Texto para Publicar*/
-  textarea {
+
+  .upContent textarea {
     border: 10px;
     width: 50%;
     height: 25px;
@@ -443,44 +381,63 @@ body {
     border-radius: 15px;
   }
 
-  #likeButton {	
+  #likeButton {
     background-color: #637081;
-		background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
+    background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
     color: white;
     border: none;
-	  height: 30px;
-	  width: 100px;
-	  border-radius: 10px;
-	  margin: 5px;
-	  font-size: 14px;
-	  cursor: pointer;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
   }
-  
+
   #dislikeButton {
     background-color: #b8c6db;
     background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
     border: none;
-	  height: 30px;
-	  width: 100px;
-	  border-radius: 10px;
-	  margin: 5px;
-	  font-size: 14px;
-	  cursor: pointer;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
   }
 
-  #likeButton:hover, #dislikeButton:hover {
+  #likeButton:hover,
+  #dislikeButton:hover {
     filter: hue-rotate(40deg);
     transform: scale(1.1);
   }
-  
-  #likeButton:focus, #dislikeButton:focus {
+
+  #likeButton:focus,
+  #dislikeButton:focus {
     outline: none;
     color: white;
-    background-color: #f5d020!important;
-    background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%)!important;
+    background-color: #f5d020 !important;
+    background-image: linear-gradient(
+      315deg,
+      #f5d020 0%,
+      #f53803 74%
+    ) !important;
   }
-  
-  #likeButton:focus:hover, #dislikeButton:focus:hover  {
+
+  #likeButton:focus:hover,
+  #dislikeButton:focus:hover {
     filter: hue-rotate(0deg);
+  }
+
+  .control {
+    order: -1;
+    background-color: #0b081b;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 220px;
+    height: 100vh;
+    margin: 1.2rem 0 0 1rem;
   }
 }

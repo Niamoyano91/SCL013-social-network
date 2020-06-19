@@ -20,7 +20,7 @@ export default () => {
         <div class="bodyUser">
           <div class="userlogin">
             <p class="txtUser"></p>
-            <input type="email" id="email" class="email" placeholder="     Correo electronico">
+            <input type="email" id="email" class="email" placeholder="     Correo electrónico">
             <p class="txtPassword"></p>
             <input type="password" id="password" class="password" placeholder="     Contraseña">
             <p class="txtPassword"></p>
@@ -43,10 +43,10 @@ export default () => {
         <!--  -->
    
         <div class="registeredUser">
-          <p id= "registeredUser">¿Tienes Cuenta?<a href="#/home" id="register" > Ingresa AQUI!!! </a></p> 
+          <p id= "registeredUser">¿Tienes cuenta?<a href="#/home" id="register" > Ingresa aquí </a></p> 
         </div>
         <!--  -->
-        <div class="footer">
+        <div class="reg-footer">
           <p>© min Corp.</p>
         </div>
       </div>

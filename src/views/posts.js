@@ -71,7 +71,6 @@ export default () => {
         </symbol>                
     </svg>
     </a>
-
     <a href="#/" id="events">
         <svg class="icon icon-calendar"><use xlink:href="#icon-calendar"></use>
     <symbol id="icon-calendar" viewBox="0 0 26 28">
@@ -79,7 +78,6 @@ export default () => {
         </symbol>
     </svg>
     </a>
-
     <a href="#/" id="newpost">
     <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use>
     <symbol id="icon-plus" viewBox="0 0 22 28">
@@ -87,7 +85,6 @@ export default () => {
         </symbol>
     </svg>
     </a>
-
     <a href="#/" id="search">
     <svg class="icon icon-search"><use xlink:href="#icon-search"></use>
     <symbol id="icon-search" viewBox="0 0 26 28">
@@ -95,7 +92,6 @@ export default () => {
         </symbol>
     </svg>
     </a>
-
     <a href="#/userProfile" id="profile">
     <svg class="icon icon-user"><use xlink:href="#icon-user"></use>
     <symbol id="icon-user" viewBox="0 0 20 28">
@@ -105,7 +101,6 @@ export default () => {
     </a>
   
 </div>
-
     <!-- Fin -->`;
 
   const body = document.body;
@@ -132,6 +127,8 @@ export default () => {
     li.setAttribute('class', 'postContentLi');
     li.appendChild(nameAuthor);
     nameAuthor.textContent = doc.data().author;
+
+    nameAuthor.setAttribute('class', 'author-name');
     deleteX.setAttribute('class', 'cerrar');
     description.textContent = doc.data().descripcion;
     description.setAttribute('id', 'description');
@@ -224,25 +221,24 @@ export default () => {
   };
 
   // Cambios en tiempo Real
-  db.collection('publicaciones')
-    .onSnapshot((snapshot) => {
-      const changes = snapshot.docChanges();
-      changes.forEach((change) => {
-        console.log(change.type);
-        if (change.type === 'added') {
-          renderMusic(change.doc);
-        }
-        else if (change.type === 'modified') {
-          const li = postList.querySelector(`[data-id=${change.doc.id}]`);
-          postList.removeChild(li);
-          renderMusic(change.doc);
-        }
-        else if (change.type === 'removed') {
-          const li = postList.querySelector(`[data-id=${change.doc.id}]`);
-          postList.removeChild(li);
-        }
-      });
+  db.collection('publicaciones').onSnapshot((snapshot) => {
+    const changes = snapshot.docChanges();
+    changes.forEach((change) => {
+      console.log(change.type);
+      if (change.type === 'added') {
+        renderMusic(change.doc);
+      }
+      else if (change.type === 'modified') {
+        const li = postList.querySelector(`[data-id=${change.doc.id}]`);
+        postList.removeChild(li);
+        renderMusic(change.doc);
+      }
+      else if (change.type === 'removed') {
+        const li = postList.querySelector(`[data-id=${change.doc.id}]`);
+        postList.removeChild(li);
+      }
     });
+  });
 
   // Agregar Publicacion
   const form = divElement.querySelector('.home-publishPost');
