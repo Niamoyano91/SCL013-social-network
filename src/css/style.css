@@ -9,6 +9,7 @@ html {
 
 html, body {
   overflow: hidden;
+  background-color: #0b081b;
 }
 /*Phone*/
 * {
@@ -27,10 +28,6 @@ html, body {
 #logoPrincipal {
   width: 200px;
   padding-top: 30px;
-}
-
-body {
-  background-color: #0b081b;
 }
 
 input[type=email], input[type=password] {  
@@ -173,6 +170,9 @@ input[type=email]:focus, input[type=password]:focus {
   justify-content: center;
   height: 10vh;
 }
+a#btnLogin.btnLogin {
+  margin-top: 0.4rem;
+}
 /* .bodyUserLogin{
 
 } */
@@ -205,7 +205,7 @@ a{
 }
 
 #registeredUser{
-  margin-top: 70px;
+  margin-top: 7rem;
   color: white;
   text-decoration: none;
   font-size: 14px;
@@ -225,13 +225,25 @@ a{
   justify-content: center;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
   font-size: 10px;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.reg-footer {
+  background-color: #0b081b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  margin-top: 7rem;
+  margin-bottom: 1rem;
 }
 .userlogin {
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .container {
@@ -313,7 +325,7 @@ a{
 
   #registeredUser {
     margin-left: -370px;
-    margin-top: -450px;
+    margin-top: -400px;
     margin-right: 0px;
     order: 1;
   }
@@ -321,8 +333,11 @@ a{
   .userlogin {
     padding-left: 0px;
     order: 2;
+    margin-bottom: 3rem;
   }
-
+  .reg-footer {
+    order: -1;
+  }
   .bodyUserGoogle{
     display: flex;
     align-self: flex-end;
