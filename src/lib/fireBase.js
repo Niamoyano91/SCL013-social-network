@@ -17,33 +17,11 @@ import { auth } from '../main.js';
 
 export const statusUser = () => {
   auth.onAuthStateChanged((user) => {
-    const photoURL = user.photoURL;
-    const email = user.email;
-    const emailVerified = user.emailVerified;
-    let txtVerificado = '';
-    if (photoURL !== null) {
-      // let displayName = user.displayName;
-      const imgPerfilSup = document.querySelector('.imgPerfil');
-      // eslint-disable-next-line no-template-curly-in-string
-      imgPerfilSup.setAttribute('src', `${photoURL}`);
-      const imgPerfilInf = document.querySelector('.imgPerfilPostUser');
-      // eslint-disable-next-line no-template-curly-in-string
-      imgPerfilInf.setAttribute('src', `${photoURL}`);
-      /* const photoURL = user.photoURL;
-        const uid = user.uid;
-        const name = user.name; */
-    // eslint-disable-next-line eqeqeq
-    } else if (photoURL === null) {
-      // let displayName = user.displayName;
-      const imgPerfilSup = document.querySelector('.imgPerfil');
-      // eslint-disable-next-line no-template-curly-in-string
-      imgPerfilSup.setAttribute('src', 'img/perfilUsuario.jpg');
-      const imgPerfilInf = document.querySelector('.imgPerfilPostUser');
-      // eslint-disable-next-line no-template-curly-in-string
-      imgPerfilInf.setAttribute('src', 'img/perfilUsuario.jpg');
-      /* const photoURL = user.photoURL;
-            const uid = user.uid;
-            const name = user.name; */
+    if (user) {
+      const photoURL = user.photoURL;
+      const email = user.email;
+      const emailVerified = user.emailVerified;
+      let txtVerificado = '';
       if (emailVerified === false) {
         console.log('Email no Verificado');
         // eslint-disable-next-line no-alert

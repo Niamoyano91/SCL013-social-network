@@ -127,6 +127,7 @@ export default () => {
     li.setAttribute('class', 'postContentLi');
     li.appendChild(nameAuthor);
     nameAuthor.textContent = doc.data().author;
+
     nameAuthor.setAttribute('class', 'author-name');
     deleteX.setAttribute('class', 'cerrar');
     description.textContent = doc.data().descripcion;
