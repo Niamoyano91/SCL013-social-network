@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { db, auth } from '../main.js';
+
 export default () => {
   const views = `<nav class="nav-flex">
   <a class="logo" id="home" href="#"><img id = "logo-oldbeat" src="img/logo.png" alt=""></a>
@@ -98,11 +99,10 @@ export default () => {
         console.log('Document data:', doc.data().name);
         document.getElementById('nickname').innerHTML = `${doc.data().nickName}`;
         document.getElementById('name').innerHTML = `${doc.data().name}`;
-        /*document.getElementById('age').innerHTML = `${doc.data().age}`;*/
+        /* document.getElementById('age').innerHTML = `${doc.data().age}`; */
         document.getElementById('city').innerHTML = `${doc.data().city}`;
       });
     }
   });
   return divElement;
 };
-

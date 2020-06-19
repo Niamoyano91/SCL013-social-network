@@ -18,10 +18,10 @@ import { auth } from '../main.js';
 export const statusUser = () => {
   auth.onAuthStateChanged((user) => {
     if (user) {
-      const photoURL = user.photoURL;
+      // const photoURL = user.photoURL;
       const email = user.email;
       const emailVerified = user.emailVerified;
-      let txtVerificado = '';
+      // let txtVerificado = '';
       if (emailVerified === false) {
         console.log('Email no Verificado');
         // eslint-disable-next-line no-alert
