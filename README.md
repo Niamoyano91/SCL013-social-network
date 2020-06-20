@@ -15,6 +15,9 @@
 ***
 
 ## 1. Resumen del proyecto
+Oldbeat nace en respuesta a diversos grupos en redes sociales basados en Música de los 80s, debido a la variedad de grupos,  diferentes reglas, distinto numero participantes, etc. Identificamos la necesidad de un espacio inclusivo para todes en donde compartir música, videos eventos relacionados a este estilo de música que marca a más de una generación. 
+![screen1](src/img/responsive.png)
+
 GitHub Page: https://niamoyano91.github.io/SCL013-social-network/
 
 Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
@@ -31,13 +34,15 @@ B. Usuario puede recuperar contraseña por medio del link "olvidaste contraseña
 A.Usuario ingresa a Home y puede ver publicaciones de forma ascendente por fecha.
 B.Usuario puede crear publicaciones(diferente disposición de elementos según dispositivo)
 ######  Historia de usuario 4
-A.Usuario ingresa a su perfil , se pueden ver sus datos e historial de publicaciones.
+A.Usuario ingresa a su perfil , se pueden ver sus datos.
 ######  Historia de usuario 5
-######  Historia de usuario 6
-######  Historia de usuario 7
-
+A.Usuario ingresa a el muro , se pueden ver publicaciones y dar like o dislike.
 
 ## 4. Decisiones de Diseño
+El diseño se basa en colores fluorescentes derivados de las míticas luces de neón representantes clásicos de la era de los 80’s.
+Paleta de colores:
+![screen1](src/img/colors.png)
+
 ###### A. Prototipo en baja fidelidad
 Prototipo en InVision(https://nia891374.invisionapp.com/freehand/socnet-fb448y9ac?v=Ow%2Be1YqDBIUICAi7%2BiSD2w%3D%3D&linkshare=urlcopied)
 ![screen1](src/img/prototipodebaja.png)
