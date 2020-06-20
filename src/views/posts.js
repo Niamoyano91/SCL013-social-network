@@ -21,8 +21,7 @@ export default () => {
   <!-- Menu superior -->
   <nav class="nav-flex">
     <a class="logo" id="home" href="#"><img id = "logo-oldbeat" src="img/logo.png" alt=""></a>
-    <ul>
-        <input id="searchinput" placeholder="Buscar">
+    
         <ul class='navigation'>
         <li>
             <div class='divImgPerfilUser'>
@@ -34,6 +33,7 @@ export default () => {
     </ul>
   </nav>
   <!-- Contenido del sitio -->
+  <div class="body-container" id="body-container">
   <section class='home-timeline'>
           <section class='home-publisharea'>
           <div class='divImgPerfilPostUser'>
@@ -43,27 +43,27 @@ export default () => {
               <form class='home-publishPost'>
                   <section class='upContent'>
                       <textarea id='txtArea' name='txtArea' maxlength='300' 
-                      data-resizable='true' placeholder='¿Qué estás pensando?'></textarea>
+                      data-resizable='true' placeholder=' ¿Qué estás pensando?'></textarea>
                   </section>
                   <section class='downContent'>
                       <div class='iconContent'>
-                          <span>Upload</span>
+                          <span></span>
                       </div>
                           <button id='btnSendContent' name='btnSend' class='btnSendContent'>Publicar</button>
                   </section>
               </form>
           </section>
           <!-- botón editar dinamico -->
-          <div>
+          <div class = 'btnEditHidden'>
           <button style="visibility:hidden" id='btnEditContent' name='btnEdit' class='btnEditContent'>Editar</button>
           </div>
           <!-- feed con posts -->
       <div class='contentPost'>
           <ul id='contentPost'></ul>
+          </div>
   </section>
 <!--control-->
 <div class="control">
-  
     <a href="#/userPost" id="home">
     <svg class="icon icon-home"><use xlink:href="#icon-home"></use>
     <symbol id="icon-home" viewBox="0 0 26 28">
@@ -101,6 +101,7 @@ export default () => {
     </a>
   
 </div>
+</div>
     <!-- Fin -->`;
 
   const body = document.body;
@@ -116,8 +117,8 @@ export default () => {
     const li = document.createElement('li');
     const description = document.createElement('span');
     const nameAuthor = document.createElement('p');
-    const deleteX = document.createElement('div');
-    const edit = document.createElement('button');
+    const deleteX = document.createElement('img');
+    const edit = document.createElement('img');
     const likeBtn = document.createElement('i');
     // const dislikeBtn = document.createElement('button');
     const likeCounter = document.createElement('p');
@@ -128,19 +129,20 @@ export default () => {
     li.appendChild(nameAuthor);
     nameAuthor.textContent = doc.data().author;
     nameAuthor.setAttribute('class', 'author-name');
+    deleteX.setAttribute('src', '/img/trash-alt-regular.svg');
     deleteX.setAttribute('class', 'cerrar');
     description.textContent = doc.data().descripcion;
     description.setAttribute('id', 'description');
-    deleteX.textContent = 'x';
     edit.setAttribute('id', `btnedit${doc.id}`);
     edit.setAttribute('class', 'btnEdit');
-    edit.textContent = 'Editar';
+    edit.setAttribute('src', '/img/edit-solid.svg');
     likeBtn.setAttribute('id', `likeButton${doc.id}`);
     likeBtn.setAttribute('class', 'fa fa-thumbs-up');
     // likeBtn.innerHTML = 'Me gusta';
     // dislikeBtn.setAttribute('id', `dislikeButton${doc.id}`);
     // dislikeBtn.innerHTML = 'No me gusta';
     likeCounter.textContent = `${doc.data().likes} likes`;
+    likeCounter.setAttribute('class', 'counter-text');
 
     li.appendChild(description);
     li.appendChild(deleteX);
@@ -213,29 +215,18 @@ export default () => {
       btnEdit.setAttribute('style', 'visibility:visible');
     };
   };
-
   const activa = () => {
     const btnSend = document.querySelector('#btnSendContent');
     btnSend.disabled = false;
+    const btnEdit = document.querySelector('#btnEditContent');
+    btnEdit.setAttribute('style', 'visibility:hidden');
   };
 
   // Cambios en tiempo Real
-  db.collection('publicaciones').onSnapshot((snapshot) => {
-    const changes = snapshot.docChanges();
-    changes.forEach((change) => {
-      console.log(change.type);
-      if (change.type === 'added') {
-        renderMusic(change.doc);
-      }
-      else if (change.type === 'modified') {
-        const li = postList.querySelector(`[data-id=${change.doc.id}]`);
-        postList.removeChild(li);
-        renderMusic(change.doc);
-      }
-      else if (change.type === 'removed') {
-        const li = postList.querySelector(`[data-id=${change.doc.id}]`);
-        postList.removeChild(li);
-      }
+  db.collection('publicaciones').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
+    postList.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      renderMusic(doc);
     });
   });
 

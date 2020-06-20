@@ -38,7 +38,6 @@ html {
   overflow: auto;
   background-color: #0b081b;
 }
-
 ::placeholder {
   text-align: justify;
   font-size: 15px;
@@ -48,19 +47,60 @@ html {
   display: flex;
   justify-content: center;
 }
-
-#btnEditContent,
 #btnSendContent {
-  display: inline-block;
-  position: relative;
-  width: 120px;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 2px;
-  font-size: 0.9em;
-  background-color: #fff;
-  color: #646464;
+  outline: none;
+  width: 90px;
+  height: 30px;
+  background: #71d6d4;
+  border-style: solid;
+  border-width: 0px 0px 5px 0px;
+  border-color: #37bebb;
+  border-radius: 4px;
+  color: #2e9e9c;
+  cursor: pointer;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-top: 0.8rem;
 }
+.btnEditHidden > .btnEditContent {
+  margin-bottom: 1rem;
+  margin-left: 25px;
+  outline: none;
+  width: 67px;
+  height: 30px;
+  background: #71d6d4;
+  border-style: solid;
+  border-width: 0px 0px 5px 0px;
+  border-color: #37bebb;
+  border-radius: 4px;
+  color: #2e9e9c;
+  cursor: pointer;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-top: 0.5rem;
+}
+
+.btnEditHidden {
+  height: 40px;
+}
+
+#btnEditContent:active,
+#btnSendContent:active {
+  border-width: 0px 0px 2px 0px;
+  transform: translateY(4px);
+  opacity: 0.9;
+}
+/* .btneditar-dinamico {
+  position: absolute;
+} */
 .divImgPerfilPostUser {
   display: none;
 }
@@ -91,6 +131,8 @@ ul#contentPost {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
+  position: relative;
 }
 .postContentLi {
   background-color: #fff;
@@ -109,9 +151,21 @@ ul#contentPost {
   color: #201b39;
   font-weight: 500;
   font-size: 17px;
+  margin-bottom: 8px;
+}
+.cerrar {
+  margin-left: auto;
+  position: static;
+  width: 17px;
+  height: 17px;
+  /* text-align: center; */
+  cursor: pointer;
 }
 span#description {
   color: #0b081b;
+}
+.counter-text {
+  color: gray;
 }
 .control {
   position: fixed;
@@ -129,20 +183,33 @@ span#description {
   font-size: 50px;
   cursor: pointer;
   user-select: none;
+  color: #e54ebc;
+  margin-left: 8px;
 }
 
 .fa:hover {
-  color: darkblue;
+  color: #71d6d4;
 }
+.cerrar {
+  float: right;
+right:70px;
+top: 20px;
+margin-top: 6px;
+}
+.btnEdit {
+  float: right;
+margin: 5px 0 0 6px;
+}
+
 
 /*Desktop*/
 @media (min-width: 1090px) {
-  .home-bodyPost {
+  /* .home-bodyPost {
     overflow: visible;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
     height: 100vh;
     background-color: #0b081b;
-  }
+  } */
 
   .nav-flex {
     display: flex;
@@ -182,13 +249,6 @@ span#description {
   ul .navigation {
     display: flex;
   }
-  input .search {
-    height: 20px;
-    border-radius: 10px;
-    margin: 10% 0 0 0;
-    border-color: #2f80ed;
-    text-indent: 4%;
-  }
   .logo {
     margin: 0 0 0 5%;
   }
@@ -209,6 +269,31 @@ span#description {
     font-weight: bold;
     cursor: pointer;
   }
+  .home-timeline {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b081b;
+  }
+  .home-publisharea {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 240px;
+    width: 500px;
+    order: 0;
+  }
+  .btnSendContent {
+    margin-top: 0.8rem;
+    margin-left: 710px;
+  }
+  .btnEditHidden > .btnEditContent {
+    margin-bottom: 2rem;
+    margin-left: 240px;
+  }
+  .btnEditHidden {
+    height: 37px;
+  }
+  
   /*Contenedor Principal*/
   .perfilUserAndPostsUser {
     display: flex;
@@ -232,7 +317,7 @@ span#description {
     justify-content: center;
     border-radius: 15px;
     margin: 10px;
-    
+
   }
   input.inputFormDescription{
     margin-right: 50px;
@@ -303,62 +388,49 @@ span#description {
     width: 100%;
     height: 100%;
   }
-  /*contenedor del post*/
-  .mainContentPost {
-    display: flex;
-    justify-content: center;
-  }
-  /*lado izquierdo del post*/
-  .leftContent {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 15px 0px 0px 15px;
-    width: 5%;
-  }
-  /*lado derecho del post*/
-  .rightContent {
-    background-color: #fff;
-    width: 70%;
-    border-radius: 15px;
-  }
   /*contenido superior del lado derecho del post*/
   .upContent {
     display: flex;
     background-color: #fff;
     align-items: center;
     justify-items: center;
+    width: 50em;
   }
   /*input publicar*/
   #txtArea {
     width: 100%;
-  }
-  /*contenido inferior del lado derecho del post*/
-  .downContent {
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  /*contenido Up y Down del contenedor derecho*/
-  .publishPost {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    height: auto;
-  }
-  /*boton publicar*/
-  .btnSendContent {
-    width: 100px;
     height: 30px;
+    background-color: #FFF;
   }
-
+ 
   /*Caja de los Post*/
   .contentPost {
-    margin: 30px;
-    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    order: 10;
+    margin-left: 215px;
+    /* position: relative;
+    
+    width: 2vw;*/
   }
 
-  .contentPost li {
+  .postContentLi {
+    background-color: #fff;
+    border-radius: 7px;
+    display: inline-block;
+    justify-content: space-around;
+    width: 660px;
+    height: auto;
+    margin: 10px 0;
+    font-size: 16px;
+    /* min-height: 20vh; */
+    overflow: auto;
+    padding: 1rem;
+  }
+
+  /* .contentPost li {
     color: #000;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
     list-style: none;
@@ -369,56 +441,7 @@ span#description {
     font-size: 16px;
     background-color: #fff;
     border-radius: 15px;
-  }
-
-  #likeButton {
-    background-color: #637081;
-    background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
-    color: white;
-    border: none;
-    height: 30px;
-    width: 100px;
-    border-radius: 10px;
-    margin: 5px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  #dislikeButton {
-    background-color: #b8c6db;
-    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
-    border: none;
-    height: 30px;
-    width: 100px;
-    border-radius: 10px;
-    margin: 5px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  #likeButton:hover,
-  #dislikeButton:hover {
-    filter: hue-rotate(40deg);
-    transform: scale(1.1);
-  }
-
-  #likeButton:focus,
-  #dislikeButton:focus {
-    outline: none;
-    color: white;
-    background-color: #f5d020 !important;
-    background-image: linear-gradient(
-      315deg,
-      #f5d020 0%,
-      #f53803 74%
-    ) !important;
-  }
-
-  #likeButton:focus:hover,
-  #dislikeButton:focus:hover {
-    filter: hue-rotate(0deg);
-  }
-
+  } */
   .control {
     order: -1;
     background-color: #0b081b;
@@ -427,7 +450,23 @@ span#description {
     align-items: flex-start;
     justify-content: flex-start;
     width: 220px;
-    height: 100vh;
     margin: 1.2rem 0 0 1rem;
+  }
+  .cerrar {
+    float: right;
+  right:70px;
+  top: 20px;
+  margin-top: 6px;
+  }
+  .btnEdit {
+    float: right;
+    margin: 5px 0 0 8px;
+  }
+  .fa {
+    margin-top: 7px;
+  }
+  span#description {
+    display: inline-block;
+    width: 40rem;
   }
 }
