@@ -128,6 +128,7 @@ export default () => {
     li.setAttribute('class', 'postContentLi');
     li.appendChild(nameAuthor);
     nameAuthor.textContent = doc.data().author;
+
     nameAuthor.setAttribute('class', 'author-name');
     deleteX.setAttribute('src', '/img/trash-alt-regular.svg');
     deleteX.setAttribute('class', 'cerrar');
