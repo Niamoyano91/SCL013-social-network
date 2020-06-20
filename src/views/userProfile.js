@@ -4,9 +4,6 @@ import { db, auth } from '../main.js';
 export default () => {
   const views = `<nav class="nav-flex">
   <a class="logo" id="home" href="#"><img id = "logo-oldbeat" src="img/logo.png" alt=""></a>
-  <ul>
-      <input id="searchinput" placeholder="Buscar">
-  </ul>
   <ul class="navigation">
       <li>
           <div><a href="#/userProfile"><img class='imgPerfilUser' src="img/perfilUsuario.jpg"></a></div>
