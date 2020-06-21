@@ -23,6 +23,34 @@ GitHub Page: https://niamoyano91.github.io/SCL013-social-network/
 Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
 
 ## 2. Objetivos
+HTML y CSS
+ * [] HTML semántico
+ * [] CSS flexbox
+ * [] Construir tu aplicación respetando el diseño realizado (maquetación).
+DOM y Web APIs
+ * [] Manipulación dinámica del DOM
+ * [] History API
+ * [] localStorage
+Javascript
+ * [] Uso de callbacks
+ * [] Consumo de Promesas
+ * [] Uso ES modules (import | export)
+Firebase
+ * [] Firestore
+ * [] Firebase Auth
+ * [] Firebase security rules
+ * [] Uso de onSnapshot | onAuthStateChanged
+Testing
+ * [] Testeo de tus funciones
+ * [] Testeo asíncrono
+ * [] Mocking
+Git y Github
+ * [] Colaboración en Github
+ * []O rganización en Github
+Buenas prácticas de desarrollo
+ * [] Modularización
+ * [] Nomenclatura / Semántica
+ * [] Linting
 ## 3. Historias de usuario
 ######  Historia de usuario 1
 A. Usuario ingresa a pantalla inicial y aparece la opción (botón) para registrarse.

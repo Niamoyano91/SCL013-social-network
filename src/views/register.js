@@ -47,7 +47,7 @@ export default () => {
         </div>
         <!--  -->
         <div class="reg-footer">
-          <p>© min Corp.</p>
+          <p id="reg-footer">© min Corp.</p>
         </div>
       </div>
     </div>
