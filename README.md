@@ -27,43 +27,43 @@ Deploy: https://niamoyano91.github.io/SCL013-social-network/src/index.html
 HTML y CSS
 
  * [ ] HTML semántico
- * [ ] CSS flexbox
- * [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+ * [x] CSS flexbox
+ * [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 DOM y Web APIs
 
- * [ ] Manipulación dinámica del DOM
+ * [x] Manipulación dinámica del DOM
  * [ ] History API
  * [ ] localStorage
 
 Javascript
 
- * [ ] Uso de callbacks
- * [ ] Consumo de Promesas
- * [ ] Uso ES modules (import | export)
+ * [x] Uso de callbacks
+ * [x] Consumo de Promesas
+ * [x] Uso ES modules (import | export)
 
 Firebase
 
- * [ ] Firestore
- * [ ] Firebase Auth
+ * [x] Firestore
+ * [x] Firebase Auth
  * [ ] Firebase security rules
- * [ ] Uso de onSnapshot | onAuthStateChanged
+ * [x] Uso de onSnapshot | onAuthStateChanged
 
 Testing
 
- * [ ] Testeo de tus funciones
+ * [x] Testeo de tus funciones
  * [ ] Testeo asíncrono
  * [ ] Mocking
 
 Git y Github
 
- * [ ] Colaboración en Github
+ * [x] Colaboración en Github
  * [ ] Organización en Github
 
 Buenas prácticas de desarrollo
 
- * [ ] Modularización
- * [ ] Nomenclatura / Semántica
+ * [x] Modularización
+ * [x] Nomenclatura / Semántica
  * [ ] Linting
  
 ## 3. Historias de usuario
