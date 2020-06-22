@@ -57,7 +57,9 @@ export default () => {
       <ul id='contentPost'></ul>
     </div>
   </section>
+  
   <!--control-->
+
 <div class="control">
     <a href="#/userPost" id="home">
     <svg class="icon icon-home"><use xlink:href="#icon-home"></use>
