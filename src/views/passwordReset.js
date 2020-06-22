@@ -15,7 +15,7 @@ export default () => {
         <div class="bodyUser">
           <div class="userlogin">
           <p class="txtUser">Inserta tu e-mail para
-          </br> la recuperacion de tu contraseña.</p>
+          </br> la recuperación de tu contraseña.</p>
             <br>
             <input type="email" id="email" class="email" placeholder="     Usuario">
             <p class="txtPassword"></p>
@@ -31,7 +31,7 @@ export default () => {
         <!--  -->
         <div class="bodyUserWithAcount">
           <p id= "bodyUserRegistrar" >Regresar Al Inicio</p> 
-          <a href="#/home" id="register" > Ingresa AQUI!!! </a>
+          <a href="#/home" id="register" > Ingresa aquí </a>
         </div>
         <!--  -->
         <div class="footer">

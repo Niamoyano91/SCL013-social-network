@@ -7,7 +7,7 @@ html {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
-html, body {
+.bodyStyle {
   overflow: hidden;
   background-color: #0b081b;
 }
@@ -30,20 +30,21 @@ html, body {
   padding-top: 30px;
 }
 
-input[type=email], input[type=password] {  
-  color:#abacb4; 
-  background-color:#151728; 
-  font-size: 10pt; 
-  border-radius:5px; 
-  border-width:1px; 
-  text-align:center; 
+input[type="email"],
+input[type="password"] {
+  color: #abacb4;
+  background-color: #151728;
+  font-size: 10pt;
+  border-radius: 5px;
+  border-width: 1px;
+  text-align: center;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
   font-weight: 400;
-  padding:6px;
-
-} 
-input[type=email]:focus, input[type=password]:focus { 
-  outline: none; 
+  padding: 6px;
+}
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
 }
 .bodyUser {
   display: flex;
@@ -56,9 +57,9 @@ input[type=email]:focus, input[type=password]:focus {
   border-radius: 15px;
   font-weight: 300;
 }
-.txtUser{
-  margin-bottom: 5px;
-  color: #fff;
+.txtUser {
+  color: rgb(241, 241, 241);
+  font-size: 11pt;
 }
 .email,
 .password {
@@ -163,7 +164,8 @@ input[type=email]:focus, input[type=password]:focus {
 .bodyUserGoogle,
 .bodyUserRegistrar,
 .bodyUserLogin,
-.registeredUser{
+.registeredUser,
+.bodyUserWithAcount {
   background-color: #0b081b;
   display: flex;
   align-items: center;
@@ -173,24 +175,10 @@ input[type=email]:focus, input[type=password]:focus {
 a#btnLogin.btnLogin {
   margin-top: 0.4rem;
 }
-/* .bodyUserLogin{
-
-} */
-/* .bodyUserRegistrar a,
-.bodyUserLogin a {
-
-} */
-/* .BtnReturn {
-
-  background-color: #0b081b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-a{
+a {
   justify-content: center;
   align-items: center;
-} 
+}
 
 .bodyUser a {
   color: #fff;
@@ -204,7 +192,7 @@ a{
   font-size: 14px;
 }
 
-#registeredUser{
+#registeredUser {
   margin-top: 7rem;
   color: white;
   text-decoration: none;
@@ -258,40 +246,40 @@ a{
   color: #fff;
 }
 
-#logoGoogle{
+#logoGoogle {
   width: 150px;
   border-color: white;
 }
 
 .bodyForgetPassword {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45vh;
-    margin-left: 10em;
-    margin-right: 10em;
-    margin-top: 3em;
-    font-weight: 300;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-top: 3em;
+  font-weight: 300;
+}
 
-  }
-
-  .textForgetPassword,
-  .textForgetPass {
-      color: #FFFFFF;
-      height: 15vh;
-      font-size: 10pt;
-      line-height: 1.5rem;
-  }
-
+.textForgetPassword,
+.textForgetPass {
+  color: #ffffff;
+  height: 15vh;
+  font-size: 10pt;
+  line-height: 1.5rem;
+}
 
 /*Desktop*/
 @media (min-width: 1090px) {
-
-  html, body{
-    background: rgb(70,30,65);
-    background: linear-gradient(0deg, rgba(70,30,65,1) 0%, rgba(101,29,149,1) 100%);
+  html,
+  body {
+    background: linear-gradient(
+      0deg,
+      rgba(70, 30, 65, 1) 0%,
+      rgba(101, 29, 149, 1) 100%
+    );
   }
-
   .bodyBox {
     border-radius: 20px;
     display: flex;
@@ -301,9 +289,9 @@ a{
     margin: 70px;
     padding: 20px;
     flex-direction: row;
-    -webkit-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
-    box-shadow: 9px 9px 18px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 9px 9px 18px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 9px 18px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 9px 18px -6px rgba(0, 0, 0, 0.75);
     background-color: #0b081b;
   }
 
@@ -317,9 +305,15 @@ a{
 
   .bodyUserRegistrar {
     align-self: flex-start;
-    margin-left: -480px;
+    margin-left: -300px;
     margin-top: -20px;
     margin-right: -230px;
+    order: 1;
+  }
+  .bodyUserWithAcount {
+    align-self: flex-start;
+    margin-left: -300px;
+    margin-top: -20px;
     order: 1;
   }
 
@@ -338,40 +332,63 @@ a{
   .reg-footer {
     order: -1;
   }
-  .bodyUserGoogle{
+  .bodyUserGoogle {
     display: flex;
     align-self: flex-end;
-    margin-left: -180px;
+    margin-left: 0px;
     order: 3;
     align-content: center;
   }
 
   .bodyForgetPassword {
     display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 45vh;
-      margin-left: 10em;
-      margin-right: 10em;
-      font-weight: 300;
-      margin-bottom: 3em;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    margin-left: 10em;
+    margin-right: 10em;
+    font-weight: 300;
+    margin-bottom: 3em;
+  }
 
-    }
+  .textForgetPassword,
+  .textForgetPass {
+    color: #ffffff;
+    height: 12vh;
+    font-size: 10pt;
+    line-height: 1.5rem;
+  }
 
-    .textForgetPassword,
-    .textForgetPass {
-        color: #FFFFFF;
-        height: 12vh;
-        font-size: 10pt;
-        line-height: 1.5rem;
-    }
-
-  #logoGoogle{
+  #logoGoogle {
     width: 150px;
     border-color: white;
     margin-top: -20px;
   }
 
+  .simpleBtn {
+    outline: none;
+    width: 90px;
+    height: 40px;
+    background: #71d6d4;
+    border-style: solid;
+    border-width: 0px 0px 5px 0px;
+    border-color: #37bebb;
+    border-radius: 4px;
+    color: #2e9e9c;
+    cursor: pointer;
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    transition: 0.1s;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  .simpleBtn:active {
+    border-width: 0px 0px 2px 0px;
+    transform: translateY(4px);
+    opacity: 0.9;
+  }
 
   /*.bodyForgetPassword {
     display: flex;
@@ -385,45 +402,13 @@ a{
 
     }*/
 
-    /*.textForgetPassword,
+  /*.textForgetPassword,
     .textForgetPass {
         color: #FFFFFF;
         height: 12vh;
         font-size: 10pt;
         line-height: 1.5rem;
     }*/
-
-  /*#logoGoogle{
-    width: 150px;
-    border-color: white;
-    margin-top: -20px;
-  }*/
-
-  /*.simpleBtn {
-    outline: none;
-    width: 90px;
-    height: 40px;
-    background: #71D6D4;
-    border-style: solid;
-    border-width: 0px 0px 5px 0px;
-    border-color: #37BEBB;
-    border-radius: 4px;
-    color: #2E9E9C;
-    cursor: pointer;
-    font-family: "Rubik";
-    font-size: 1em;
-    font-weight: 500;
-    transition: .1s;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    }
-
-    .simpleBtn:active {
-      border-width: 0px 0px 2px 0px;
-      transform: translateY(4px);
-      opacity: 0.9;
-  }*/
-
   .footer {
     position: fixed;
     background-color: none;
@@ -431,66 +416,68 @@ a{
     margin-top: 53px;
     order: 2;
   }
+  .reg-footer {
+    position: fixed;
+    margin-left: -150px;
+    margin-top: 110px;
+    order: 2;
+  }
 
-  /*#logoGoogle{
-    width: 150px;
-    border-color: white;
-    margin-top: -20px;
-  }*/
-}
+  /*Boton Google*/
+  .buttonGoogle {
+    background: #fff;
+    box-shadow: 0px 2px 0px #266792;
+    color: #000;
+    display: flex;
+    font-size: 0.7em;
+    margin: 0px 10px;
+    padding: 5px 0;
+    width: 200px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
+  }
 
-/*Boton Google*/
-.buttonGoogle {
-	background:#fff;
-	box-shadow:0px 2px 0px #266792;
-	color:#000;
-	display:flex;
-	font-size:.7em;
-	margin:0px 10px;
-	padding:5px 0;
-  width:200px;
-	text-decoration:none;
-  border-radius:20px;
-  font-family: "Rubik",Arial, Helvetica, sans-serif;
-}
-
-
-
-img{
-    padding-right: .3em;
+  img {
+    padding-right: 0.3em;
     width: 20px;
     height: auto;
-    }
+  }
 
+  /*Efectos, Hover*/
+  .buttonGoogle:hover {
+    box-shadow: 0px 1px 0px #266792;
+    padding-top: 7px;
+  }
 
-/*Efectos, Hover*/
-.buttonGoogle:hover {
-	box-shadow:0px 1px 0px #266792;
-	padding-top:7px;
-}
-
-/*Google*/
-.G1, .o1, .o2, .g2, .l1, .e1{
- font-weight: 500;
- font-size: 1.4em;
- letter-spacing: 2px;
-}
-.G1{
-color: #4285f4;
-padding-left: .5em;
-}
-.o1{
-color: #ea4335;
-}
-.o2{
-color: #fbbc05;
-}
-.g2{
-color: #4285f4;
-}
-.l1{
-color: #34a853;
-}
-.e1{
-color: #ea4335;
+  /*Google*/
+  .G1,
+  .o1,
+  .o2,
+  .g2,
+  .l1,
+  .e1 {
+    font-weight: 500;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+  }
+  .G1 {
+    color: #4285f4;
+    padding-left: 0.5em;
+  }
+  .o1 {
+    color: #ea4335;
+  }
+  .o2 {
+    color: #fbbc05;
+  }
+  .g2 {
+    color: #4285f4;
+  }
+  .l1 {
+    color: #34a853;
+  }
+  .e1 {
+    color: #ea4335;
+  }
 }
