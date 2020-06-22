@@ -153,14 +153,6 @@ ul#contentPost {
   font-size: 17px;
   margin-bottom: 8px;
 }
-.cerrar {
-  margin-left: auto;
-  position: static;
-  width: 17px;
-  height: 17px;
-  /* text-align: center; */
-  cursor: pointer;
-}
 span#description {
   color: #0b081b;
 }
@@ -192,25 +184,36 @@ span#description {
 }
 .cerrar {
   float: right;
-right:70px;
-top: 20px;
-margin-top: 6px;
+  right: 70px;
+  top: 20px;
+  margin-top: 6px;
+  margin-left: auto;
+  position: static;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  cursor: pointer;
 }
 .btnEdit {
   float: right;
-margin: 5px 0 0 6px;
+  margin: 5px 0 0 6px;
+  width: 20px;
 }
-
+.title-home,
+.title-events,
+.title-user {
+  position: absolute;
+  z-index: 1;
+  color: #201b39;
+  pointer-events: none;
+}
+.datePost{
+  text-align: right;
+  font-size: 12px;
+}
 
 /*Desktop*/
 @media (min-width: 1090px) {
-  /* .home-bodyPost {
-    overflow: visible;
-    font-family: "Rubik", Arial, Helvetica, sans-serif;
-    height: 100vh;
-    background-color: #0b081b;
-  } */
-
   .nav-flex {
     display: flex;
     justify-content: space-between;
@@ -269,11 +272,13 @@ margin: 5px 0 0 6px;
     font-weight: bold;
     cursor: pointer;
   }
+
   .home-timeline {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: #0b081b;
+    overflow: visible;
   }
   .home-publisharea {
     display: flex;
@@ -293,7 +298,7 @@ margin: 5px 0 0 6px;
   .btnEditHidden {
     height: 37px;
   }
-  
+
   /*Contenedor Principal*/
   .perfilUserAndPostsUser {
     display: flex;
@@ -307,34 +312,6 @@ margin: 5px 0 0 6px;
     width: 80vw;
     padding: 15px;
   }
-
-  /*Caja del Formulario*/
-  /* #add-post-form {
-    display: flex;
-    background: #fff;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    margin: 10px;
-
-  }
-  input.inputFormDescription{
-    margin-right: 50px;
-    width: 90%;
-    height: 35px;
-    border-radius: 6px;
-    background: #f0f0f0;
-    border: 1px solid #fff;
-  }
-  input.inputFormDescription:focus{
-    outline:none !important;
-    outline-width: 0 !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-  } */
-
   /*Campo Texto para Publicar*/
 
   .upContent textarea {
@@ -351,7 +328,6 @@ margin: 5px 0 0 6px;
   }
   /*Evento que Pinta el borde al dar click*/
   textarea:focus {
-    /* outline:none !important; */
     outline-width: 1 !important;
     box-shadow: none;
     -moz-box-shadow: none;
@@ -394,26 +370,25 @@ margin: 5px 0 0 6px;
     background-color: #fff;
     align-items: center;
     justify-items: center;
-    width: 50em;
+    width: 43em;
   }
   /*input publicar*/
   #txtArea {
     width: 100%;
     height: 30px;
-    background-color: #FFF;
+    background-color: #fff;
   }
- 
+
   /*Caja de los Post*/
   .contentPost {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
     order: 10;
-    margin-left: 215px;
-    /* position: relative;
-    
-    width: 2vw;*/
+    margin-left: 217px;
+    background-color: #0b081b;
+    overflow: auto; /*para que no se vea fondo grad*/
+    margin-bottom: 20px;
   }
 
   .postContentLi {
@@ -454,9 +429,9 @@ margin: 5px 0 0 6px;
   }
   .cerrar {
     float: right;
-  right:70px;
-  top: 20px;
-  margin-top: 6px;
+    right: 70px;
+    top: 20px;
+    margin-top: 6px;
   }
   .btnEdit {
     float: right;
@@ -468,5 +443,40 @@ margin: 5px 0 0 6px;
   span#description {
     display: inline-block;
     width: 40rem;
+  }
+  .title-home,
+  .title-events,
+  .title-user {
+    color: #c3c5d5;
+    text-decoration: none !important;
+    font-size: 11pt;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+  }
+  .title-home {
+    margin-left: 14px;
+  }
+  .title-home:hover,
+  .title-events:hover,
+  .title-user:hover {
+    color: #fff;
+    font-weight: 500;
+  }
+  #btnLogOut {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 9pt;
+    letter-spacing: 0.2rem;
+  }
+  #btnLogOut:hover {
+    color: #fd99e3;
+    transition: 1s;
+  }
+  .datePost{
+    text-align: right;
+    font-size: 12px;
   }
 }
